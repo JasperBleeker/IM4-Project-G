@@ -12,11 +12,11 @@ curl_close($ch);
 
 echo $data;
 
-// // Check if the fetch was successful
-// if ($data === false) {
-//     echo "Failed to fetch data.";
-//     exit;
-// }
+// Check if the fetch was successful
+if ($data === false) {
+    echo "Failed to fetch data.";
+    exit;
+}
 
 // // Decode JSON data
 // $parkingLots = json_decode($data, true);
