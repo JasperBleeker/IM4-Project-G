@@ -8,7 +8,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $output = curl_exec($ch);
 curl_close($ch);
 
-echo $output;
+// echo $output;
 
 // Check if the fetch was successful
 if ($output === false) {
@@ -26,13 +26,6 @@ if ($data === null) {
 }
 
 // Loop over data to extract parking lot details for each lot
-// foreach ($parkingLots as $lot) {
-//     $adress = $lot['lots'];
-    
-
-//     echo "Adress: $adress";
-// }
-
 foreach ($data['lots'] as $lot) {
     $address = $lot['address'] ?? 'No address provided';
     $lat = $lot['coords']['lat'] ?? 'No latitude provided';
@@ -44,28 +37,24 @@ foreach ($data['lots'] as $lot) {
     $id = $lot['id'] ?? 'No id provided';
     $lot_type = $lot['lot_type'] ?? 'No lot type provided';
     
-    echo "Address: $address, Latitude: $lat, Longitude: $lng, Free spaces: $free, Total spaces: $total, Name: $name, State: $state, ID: $id, Lot type: $lot_type\n";
-    echo "<br>";
+    // Test output
+    // echo "Address: $address, Latitude: $lat, Longitude: $lng, Free spaces: $free, Total spaces: $total, Name: $name, State: $state, ID: $id, Lot type: $lot_type\n";
+    // echo "<br>";
+
+    // Create new array for each parking lot
+    $parkingLots[] = [
+        'address' => $address,
+        'lat' => $lat,
+        'lng' => $lng,
+        'free' => $free,
+        'total' => $total,
+        'name' => $name,
+        'state' => $state,
+        'id' => $id,
+        'lot_type' => $lot_type
+    ];
 }
-
-// // Transform data: collect transformed parking lot details
-// $transformedData = [];
-// foreach ($parkingLots as $lot) {
-//     $transformedData[] = [
-//         'name' => $lot['name'],
-//         'total' => $lot['total'],
-//         'free' => $lot['free'],
-//         'state' => $lot['state']
-//     ];
-// }
-
-// // Output the transformed data
-// echo "Transformed Data:\n";
-// print_r($transformedData);
-
-// // Placeholder for loading into the database
-// // This would involve creating a database connection and inserting the data
-// echo "Data is ready to be loaded into the database.\n";
-
-// // Example for loading would be similar to the previous ETL script example
-// ?>
+echo "<pre>";
+print_r($parkingLots);
+echo "</pre>";
+?>
