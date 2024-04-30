@@ -15,22 +15,20 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass, $options);
     
     // Define the SQL statement
-    $sql = "INSERT INTO ParkingLots (address, name, state, lot_type, free, total, location) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO ParkingLots (address, name, state, lot_type, free, total, location) VALUES (:address, :name, :state, :lot_type, :free, :total, :location)";
+$stmt = $pdo->prepare($sql);
+foreach ($parkingLot as $lot) {
+    $stmt->execute([
+        ':address' => $lot['address'],
+        ':name' => $lot['name'],
+        ':state' => $lot['state'],
+        ':lot_type' => $lot['lot_type'],
+        ':free' => $lot['free'],
+        ':total' => $lot['total'],
+        ':location' => $lot['location']
+    ]);
+}
 
-    // Prepare the SQL statement
-    $stmt = $pdo->prepare($sql);
-
-    foreach ($parkingLot as $lot) {
-        $stmt->execute([
-            ':address' => $lot['address'],
-            ':name' => $lot['name'],
-            ':state' => $lot['state'],
-            ':lot_type' => $lot['lot_type'],
-            ':free' => $lot['free'],
-            ':total' => $lot['total'],
-            ':location' => $lot['location']
-        ]);
-    }
 echo "Data loaded successfully!";
     
 } catch (PDOException $e) {
