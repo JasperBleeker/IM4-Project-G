@@ -17,22 +17,35 @@ if ($output === false) {
 }
 
 // Decode JSON data
-$parkingLots = json_decode($output, true);
+$data = json_decode($output, true);
 
 // Check if decoding was successful
-if ($parkingLots === null) {
+if ($data === null) {
     echo "Failed to decode JSON.";
     exit;
 }
 
 // Loop over data to extract parking lot details for each lot
-foreach ($parkingLots as $lot) {
-    $name = $lot['name'];
-    $total = $lot['total'];
-    $free = $lot['free'];
-    $state = $lot['state'];
+// foreach ($parkingLots as $lot) {
+//     $adress = $lot['lots'];
+    
 
-    echo "Name: $name, Total: $total, Free: $free, State: $state\n";
+//     echo "Adress: $adress";
+// }
+
+foreach ($data['lots'] as $lot) {
+    $address = $lot['address'] ?? 'No address provided';
+    $lat = $lot['coords']['lat'] ?? 'No latitude provided';
+    $lng = $lot['coords']['lng'] ?? 'No longitude provided';
+    $free = $lot['free'] ?? 'No free spaces';
+    $total = $lot['total'] ?? 'No total spaces';
+    $name = $lot['name'] ?? 'No name provided';
+    $state = $lot['state'] ?? 'No state provided';
+    $id = $lot['id'] ?? 'No id provided';
+    $lot_type = $lot['lot_type'] ?? 'No lot type provided';
+    
+    echo "Address: $address, Latitude: $lat, Longitude: $lng, Free spaces: $free, Total spaces: $total, Name: $name, State: $state, ID: $id, Lot type: $lot_type\n";
+    echo "<br>";
 }
 
 // // Transform data: collect transformed parking lot details
