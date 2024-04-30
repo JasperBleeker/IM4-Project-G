@@ -28,10 +28,10 @@ if ($data === null) {
 // Loop over data to extract parking lot details for each lot
 foreach ($data['lots'] as $lot) {
     $address = $lot['address'] ?? 'No address provided';
-    $lat = $lot['coords']['lat'] ?? 'No latitude provided';
-    $lng = $lot['coords']['lng'] ?? 'No longitude provided';
-    $free = $lot['free'] ?? 'No free spaces';
-    $total = $lot['total'] ?? 'No total spaces';
+    $lat = $lot['coords']['lat'] ?? NULL;
+    $lng = $lot['coords']['lng'] ?? NULL;
+    $free = $lot['free'] ?? NULL;
+    $total = $lot['total'] ?? NULL;
     $name = $lot['name'] ?? 'No name provided';
     $state = $lot['state'] ?? 'No state provided';
     $id = $lot['id'] ?? 'No id provided';
@@ -42,7 +42,7 @@ foreach ($data['lots'] as $lot) {
     // echo "<br>";
 
     // Create new array for each parking lot
-    $parkingLots[] = [
+    $parkingLot[] = [
         'address' => $address,
         'lat' => $lat,
         'lng' => $lng,
@@ -55,6 +55,6 @@ foreach ($data['lots'] as $lot) {
     ];
 }
 echo "<pre>";
-print_r($parkingLots);
+print_r($parkingLot);
 echo "</pre>";
 ?>
