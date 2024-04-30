@@ -1,16 +1,14 @@
 <?php
 // The API endpoint
-$apiUrl = 'https://api.parkendd.de/Zuerich';
+$url = 'https://api.parkendd.de/Zuerich';
 
 // Use cURL to fetch data from the API
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $apiUrl);
+$ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, false);
-$data = curl_exec($ch);
+$output = curl_exec($ch);
 curl_close($ch);
 
-echo $data;
+echo $output;
 
 // Check if the fetch was successful
 if ($data === false) {
