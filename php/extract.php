@@ -11,19 +11,19 @@ curl_close($ch);
 echo $output;
 
 // Check if the fetch was successful
-if ($data === false) {
+if ($output === false) {
     echo "Failed to fetch data.";
     exit;
 }
 
-// // Decode JSON data
-// $parkingLots = json_decode($data, true);
+// Decode JSON data
+$parkingLots = json_decode($output, true);
 
-// // Check if decoding was successful
-// if ($parkingLots === null) {
-//     echo "Failed to decode JSON.";
-//     exit;
-// }
+// Check if decoding was successful
+if ($parkingLots === null) {
+    echo "Failed to decode JSON.";
+    exit;
+}
 
 // // Transform data: collect transformed parking lot details
 // $transformedData = [];
