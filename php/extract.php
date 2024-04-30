@@ -25,6 +25,16 @@ if ($parkingLots === null) {
     exit;
 }
 
+// Loop over data to extract parking lot details for each lot
+foreach ($parkingLots as $lot) {
+    $name = $lot['name'];
+    $total = $lot['total'];
+    $free = $lot['free'];
+    $state = $lot['state'];
+
+    echo "Name: $name, Total: $total, Free: $free, State: $state\n";
+}
+
 // // Transform data: collect transformed parking lot details
 // $transformedData = [];
 // foreach ($parkingLots as $lot) {
