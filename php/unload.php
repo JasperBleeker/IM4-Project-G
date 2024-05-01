@@ -11,16 +11,16 @@ header('Content-Type: application/json');
 //Request User parameters
 
 try {
-    $pdo = new PDO("$dsn, db_user, db_pass, $options");
+    $pdo = new PDO($dsn, $db_user, $db_pass, $options);
     
     //SQL Query
-    $sql = "SELECT * FROM ParkingLots WHERE state = ? ORDER BY created_at DESC";
+    $sql = "SELECT * FROM ParkingLots ORDER BY created DESC";
     
     //Prepare the SQL Query
     $stmt = $pdo->prepare($sql);
 
     //Execute the SQL Query
-    $stmt->execute([$_GET['state']]);
+    // $stmt->execute([$_GET]);
 
     //Fetch the data
     $results = $stmt->fetchAll();
