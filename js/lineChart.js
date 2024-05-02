@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            console.log('Data fetched:', data);  // Check the fetched data
+            // console.log('Data fetched:', data);  // Check the fetched data
 
             const ctx = document.getElementById('lineChart').getContext('2d');
             // const dataset = data.map(lot => {
@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const filteredData = data.filter(parking => parking.name === 'Uni Irchel');
 
-            console.log('Filtered data:', filteredData);  // Check the filtered data
+            // console.log('Filtered data:', filteredData);  // Check the filtered data
 
             const ParkingData = filteredData.map(lot => (Math.round((lot.total - lot.free) / lot.total * 100)));
 
-            console.log('Dataset:', ParkingData);  // Check the processed dataset
+            // console.log('Dataset:', ParkingData);  // Check the processed dataset
 
             const datalabels = filteredData.map(lot => new Date(lot.created));
 
-            console.log('Data labels:', datalabels);  // Check the processed data labels
+            // console.log('Data labels:', datalabels);  // Check the processed data labels
 
             new Chart(ctx, {
                 type: 'line',
