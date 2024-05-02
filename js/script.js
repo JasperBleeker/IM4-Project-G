@@ -1,6 +1,16 @@
 
 
 
+// Hambuger Menu
+
+const menu_btn = document.querySelector('.hamburger-menu');
+const menu = document.querySelector('.mobile-nav');
+
+menu_btn.addEventListener('click', () => {
+  menu.classList.toggle('open');
+});
+
+
 // Marquee Effect
   function Marquee(selector, speed) {
     const parent = document.querySelector(selector);
