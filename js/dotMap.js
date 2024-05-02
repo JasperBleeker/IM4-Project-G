@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    const lot = validData[context.dataIndex];
+                                    const lot = context.dataset.data[context.dataIndex];
                                     return `${lot.name}: ${lot.free} free spots of ${lot.total} total`;
                                 }
                             }
