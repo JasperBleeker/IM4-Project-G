@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             callbacks: {
                                 label: function(context) {
                                     const lot = context.dataset.data[context.dataIndex];
+                                    const latestLot = latestData[lot.id];
                                     return `${lot.name}: ${lot.free} free spots of ${lot.total} total`;
                                 }
                             }
