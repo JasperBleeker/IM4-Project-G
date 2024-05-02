@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Filter out any entries that do not have a valid location
             const validData = data.filter(lot => lot.location && lot.location.includes(','));
 
+            // Group data by parking lot ID and keep only the latest timestamp for each parking lot
+            const latestData = validData.reduce((acc, lot) => {
+                if (!acc[lot.id] || new Date(lot.created) > new Date(acc[lot.id].created)) {
+                    acc[lot.id] = lot;
+                }
+                return acc;
+            }, {});
+
             const datasets = [{
                 label: 'Parking Lots',
                 data: validData.map(lot => {
