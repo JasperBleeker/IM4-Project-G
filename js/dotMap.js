@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
             }];
+            
 
             // Create the bubble chart
             new Chart(ctx, {
