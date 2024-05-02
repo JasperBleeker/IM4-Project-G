@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return acc;
             }, {});
+            console.log(latestData);
 
             const datasets = [{
                 label: 'Parking Lots',
