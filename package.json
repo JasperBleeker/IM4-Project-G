@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@cubejs-client/core": "^0.35.23",
-    "chart.js": "^4.4.2",
-    "parcel": "^2.12.0"
+    "chart.js": "^4.4.2"
   }
 }
