@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = 'https://project-g.data.dynamicvisualscollective.ch/php/unload.php'; // URL to the API
+    let validData; // Define validData in a scope accessible to other functions
+    let bubbleChart; // Declare bubbleChart in a scope accessible to other functions
 
     // Function to update the bubble chart based on selected date and hour
     function updateChart(selectedDate, selectedHour) {
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('dotMap').getContext('2d');
 
             // Filter out any entries that do not have a valid location
-            const validData = data.filter(lot => lot.location && lot.location.includes(','));
+            validData = data.filter(lot => lot.location && lot.location.includes(',')); // Assign to validData
 
             // Group data by parking lot ID and keep only the latest timestamp for each parking lot
             const latestData = validData.reduce((acc, lot) => {
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, {});
 
             // Initial chart setup
-            const bubbleChart = new Chart(ctx, {
+            bubbleChart = new Chart(ctx, {
                 type: 'bubble',
                 data: {
                     datasets: [] // Initially empty until updated
