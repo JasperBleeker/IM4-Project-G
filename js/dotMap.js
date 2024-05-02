@@ -17,7 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     return {
                         x: longitude,
                         y: latitude,
-                        r: Math.sqrt(lot.free) // Use square root of 'free' spots as radius for visibility
+                        r: Math.sqrt(lot.free), // Use square root of 'free' spots as radius for visibility
+                        name: lot.name,
+                        free: lot.free,
+                        total: lot.total
                     };
                 }),
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
