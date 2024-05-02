@@ -22,9 +22,21 @@
         <![endif]-->
 
     <header>
-        <div class="container">
-            <div class="row">
-                <button class="menu"
+                <nav class="navbar">
+
+                    <ul class="menu">
+                        <li class="list-items"><a href="">FREIE PARKPLÄTZE</a></li>
+                    </ul>
+
+                    <div class="logo">
+                        <a href="">Your Logo</a>
+                    </div>
+
+                    <ul class="menu">
+                        <li class="list-items"><a href="">PARKPLATZMONITOR</a></li>
+                    </ul>
+
+                    <button class="hamburger-menu"
                     onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
                     aria-label="Main Menu">
                     <svg width="100" height="100" viewBox="0 0 100 100">
@@ -35,19 +47,8 @@
                             d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
                     </svg>
                 </button>
-                <nav class="navbar">
-                    <div class="logo">
-                        <a href="">Your Logo</a>
-                    </div>
-                    <ul class="main-menu">
-                        <li class="list-items"><a href="">About</a></li>
-                        <li class="list-items"><a href="">Services</a></li>
-                        <li class="list-items"><a href="">Contact</a></li>
-                        <li class="list-items"><a href="">Blog</a></li>
-                    </ul>
+
                 </nav>
-            </div>
-        </div>
 
 
         <section id="parkplatzmonitor">
@@ -84,10 +85,10 @@
             <h2>AUSLASTUNG UMS ZENTRUM.</h2>
 
             <div class="selector">
-                <div class="slidecontainer">
+                <div class="slider">
                     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
                 </div>
-                <p>HIER KOMMT KALENDER VLT. V-KALENDER!!!!!</p>
+                  <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
             </div>
 
             <!-- Jasper's Baustelle. DO NOT TOUCH!-->
@@ -121,10 +122,10 @@
             <h2>AUSLASTUNG ZÜRICH.</h2>
 
             <div class="selector">
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <div class="standort">
+                 <!-- PLATZHALTER HIER KOMMT STADORTWAHL!!! -->
                 </div>
-                <p>HIER KOMMT KALENDER VLT. V-KALENDER!!!!!</p>
+                  <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
             </div>
 
             <!-- Jasper's Baustelle. DO NOT TOUCH!-->
