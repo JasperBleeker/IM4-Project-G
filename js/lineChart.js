@@ -5,30 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            const ctx = document.getElementById('dotMap').getContext('2d');
+            const ctx = document.getElementById('lineChart').getContext('2d');
 
-            // Filter out any entries that do not have a valid location
-            const validData = data.filter(lot => lot.location && lot.location.includes(','));
-
+            // Calculate percentage of used spots and prepare datasets
             const datasets = [{
-                label: 'Parking Lots',
-                data: validData.map(lot => {
-                    const [latitude, longitude] = lot.location.split(',').map(Number);
+                label: 'Parking Lot Utilization',
+                data: data.map(lot => {
+                    const used = lot.total - lot.free; // Calculate used spots
+                    const percentageUsed = (used / lot.total) * 100; // Calculate percentage
                     return {
-                        x: longitude,
-                        y: latitude,
-                        r: Math.sqrt(lot.free) // Use square root of 'free' spots as radius for visibility
+                        x: lot.timestamp,
+                        y: percentageUsed.toFixed(2) // Use toFixed(2) to limit to two decimal places
                     };
                 }),
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
             }];
-            
 
-            // Create the bubble chart
+            // Create the line chart inside the then() to ensure data is loaded
             new Chart(ctx, {
-                type: 'bubble',
+                type: 'line',
                 data: {
                     datasets: datasets
                 },
@@ -37,24 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         x: {
                             title: {
                                 display: true,
-                                text: 'Longitude'
+                                text: 'Zeit'
                             },
                             beginAtZero: false
                         },
                         y: {
                             title: {
                                 display: true,
-                                text: 'Latitude'
+                                text: 'Auslastung in %'
                             },
-                            beginAtZero: false
+                            beginAtZero: true,
+                            suggestedMax: 100  // Assuming percentage can't go beyond 100%
                         }
                     },
                     plugins: {
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    const lot = context.dataset.data[context.dataIndex];
-                                    return `${lot.name}: ${lot.free} free spots of ${lot.total} total`;
+                                    const lot = data[context.dataIndex];
+                                    return `${lot.name}: ${lot.total - lot.free} used spots of ${lot.total} total (${context.raw.y}%)`;
                                 }
                             }
                         }
@@ -63,6 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error fetching data:', error);
         });
 });
