@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const ctx = document.getElementById('lineChart').getContext('2d');
             const datasets = data.map(lot => {
-                if (!lot.total && lot.total !== 0) {
+                if (lot.total === undefined || lot.total === null) {
                     console.error("Invalid data entries found", lot);
                     return null;
                 }
@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     x: new Date(lot.timestamp), // Ensure the timestamp is a Date object
                     y: value
                 };
-            }).filter(Boolean);
-             // Filter out null values
+            }).filter(Boolean); // Filter out null values
 
             new Chart(ctx, {
                 type: 'line',
