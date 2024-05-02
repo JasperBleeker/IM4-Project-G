@@ -1,13 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var menuButton = document.querySelector(".menu-btn");
-    var mainMenu = document.querySelector(".main-menu");
-  
-    menuButton.addEventListener("click", function() {
-      mainMenu.classList.toggle("show");
-    });
-  });
-  
-  // Marquee Effect
+
+
+
+// Marquee Effect
   function Marquee(selector, speed) {
     const parent = document.querySelector(selector);
     const clone = parent.innerHTML;
