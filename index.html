@@ -62,11 +62,10 @@
                 <li class="menu"><a href="#parkplatzmonitor">PARKPLATZMONITOR</a></li>
             </ul>
         </nav>
-
+<div class="border-box">
         <section id="parkplatzmonitor">
             <div class="title">
-                <h1 id="white">PARKPLATZMONITOR STADT&nbsp;</h1>
-                <h1 id="green">ZÜRICH.</h1>
+                <h1 id="white">PARKPLATZMONITOR STADT <span id="green">ZÜRICH</span></h1>
             </div>
             <h3 id="parkraum">Parkraum Zürich dynamisch und interaktiv erforscht.</h3>
             <div class="intro">
@@ -142,19 +141,25 @@
 
             <div class="selector">
                 <div class="standort">
-                    <button class="standort-button">
-                        <span>Standort auswählen</span>
-                        <svg class="icon-placeholder" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                    <button id="standort-button">
+                        <span id="button-text">STANDORT AUSWÄHLEN</span>
+                        <svg class="svg-dropdown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#2DCB74"/>
                         </svg>
                     </button>
-                    <div class="dropdown-content" style="display:none;">
-                        <!-- Platzhalter für Inhalte, die beim Klicken angezeigt werden sollen -->
-                        <p>Wählen Sie einen Standort aus der Liste.</p>
-                    </div>
                 </div>
                 
+
+
                 <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
+            </div>
+
+            <div class="dropdown-div" id="dropdown">
+                <p id="dropdown-title">PARKPLÄTZE & PARKHÄUSER</p>
+                <div class="loop-check-div" id="loop-check-id">
+                    <input type="checkbox" id="standort" name="standort"/>
+                    <label for="scales">Scales</label>
+                  </div>
             </div>
 
             <!-- Jasper's Baustelle. DO NOT TOUCH!-->
@@ -164,7 +169,7 @@
             <!-- Jasper's Baustelle. Ende-->
 
             <div class="text_analyse">
-                <h2>TITEL 1</h2>
+                <h2>TITEL 2</h2>
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
                     labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
                     et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -177,9 +182,11 @@
         </section>
 
     </main>
+</div>
+
     <footer>
-        <div>
-            <p>©PROJECT_G</p>
+        <div class="footer">
+            <p>©PROJECT-G</p>
         </div>
     </footer>
 

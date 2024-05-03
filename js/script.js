@@ -12,18 +12,11 @@ menu_btn.addEventListener('click', () => {
 
 // Standort Dropdown
 
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.querySelector('.standort-button');
-  const dropdownContent = document.querySelector('.dropdown-content');
+var mydiv = document.querySelector("#dropdown")
+var mybtn = document.querySelector("#standort-button")
 
-  button.addEventListener('click', function() {
-      // Wechselt die Sichtbarkeit des Dropdown-Inhalts
-      if (dropdownContent.style.display === 'none') {
-          dropdownContent.style.display = 'block';
-      } else {
-          dropdownContent.style.display = 'none';
-      }
-  });
+mybtn.addEventListener("click", function () {
+   mydiv.classList.toggle("dropdown-div")
 });
 
 

@@ -1,9 +1,12 @@
 body {  
-  margin-left: 5%;        /* Linker äußerer Abstand */
-  margin-right: 5%;       /* Rechter äußerer Abstand */
   background-color: #0D0D0D;
   font-family: Arial, Helvetica, sans-serif;
   color: #F5F5F7; /* Optional: Changes text color to white for better visibility */
+}
+
+.border-box {
+  margin-left: 5%;        /* Linker äußerer Abstand */
+  margin-right: 5%;       /* Rechter äußerer Abstand */
 }
  
 /* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
@@ -93,7 +96,7 @@ body {
 }
 .line {
   fill: none;
-  stroke: rgb(255, 255, 255);
+  stroke: #F5F5F7;
   stroke-width: 6;
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -241,17 +244,93 @@ p {
 
 .flex-item {
   flex: 0 0 50%;
+  padding-right: 30px;
+}
+
+.flex-item p {
+  
 }
 
 .flex-item img {
   max-width: 100%;
   height: auto;
+  border-radius: 15px;
 }
 
-.dropdown-content { 
-  background-color: white;
+.dropdown-div {
+  display: none;
+  }
+
+#dropdown-title {
+  font-size: 14pt;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-left: 20px;
+  color: black;
+}
+
+#dropdown {
+  background-color: #F5F5F7; /* Hintergrundfarbe */
+  border-radius: 5px; /* Rundet die Ecken ab */
+  width: 100%; /* Breite des Dropdowns */
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#standort-button {
+  background-color: #F5F5F7;
+  display: flex;
+  justify-content: center; /* aligns items horizontally in the center */
+  align-items: center; /* aligns items vertically in the center */
+  gap: 10px; /* adds some space between the text and the SVG */
+  border-radius: 5px;
+  border: none; /* Add this line to remove any default borders */
+  outline: none; /* Removes focus outline */
+  box-shadow: none; /* Ensures no shadows are applied */
 }
 
 
+.svg-dropdown {
+  width: 30px;
+  height: 30px;
+  stroke: #2DCB74;
+}
+
+#button-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
 
 
+.loop-check-div {
+  width: auto;
+  margin-left: 20px;
+  padding: 20px 0;
+  color: #0D0D0D;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+}
+
+#standort {
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  align-items: center;
+}
+
+
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+
+.footer {
+  border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
+  color: #2DCB74;
+  margin-top: 100px;
+  padding: 70px 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+}
