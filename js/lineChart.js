@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //     };
             // });
 
-            const filteredData = data.filter(parking => parking.name === 'Pfingstweid');
+            const filteredData = data.filter(parking => parking.name === 'Uni Irchel');
 
             // console.log('Filtered data:', filteredData);  // Check the filtered data
 
