@@ -1,3 +1,6 @@
+
+/* BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC*/
+
 body {  
   background-color: #0D0D0D;
   font-family: Arial, Helvetica, sans-serif;
@@ -5,22 +8,22 @@ body {
 }
 
 .border-box {
-  margin-left: 5%;        /* Linker äußerer Abstand */
-  margin-right: 5%;       /* Rechter äußerer Abstand */
+  margin-left: 5%; /* Linker äußerer Abstand */
+  margin-right: 5%; /* Rechter äußerer Abstand */
 }
  
 /* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
 
 .navbar {
-  display: flex;          /* Enable Flexbox */
+  display: flex; /* Enable Flexbox */
   justify-content: space-around; /* Distribute space between the items */
-  align-items: center;
+  align-items: center; /* Aligns the items vertically center */
   background-color: transparent; /* Light grey background */
   z-index: 9999; /* Places the navbar on top of other elements */
   position: sticky; /* Makes the navbar stick to the top of the page */
   top: 0; /* Places the navbar at the top of the page */
   background-color: #0d0d0de1; /* Background color of the navbar */
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
   backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
 }
 
@@ -34,40 +37,45 @@ body {
 
 .list-items a {
   text-decoration: none; /* Removes underline from links */
-  color: #F5F5F7;           /* Dark grey color for text */
+  color: #F5F5F7; /* Dark grey color for text */
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 18px;       /* Font size for menu items */
+  font-weight: 700; /* Bold font weight */
+  font-size: 18px; /* Font size for menu items */
 }
 
 #navigation {
   height: 100px; /* Adjust height as needed */
-    display: flex;
-  text-align: center;
+  display: flex; /* Enable Flexbox */
+  text-align: center; /* Aligns the text in the center */
   align-items: center; /* This aligns the child elements (ul) vertically center */
 }
 
-
+/* MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR */
 
 .mobile-nav {
-  display: block;
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  z-index: 98;
-  background-color: #0D0D0D;
-  padding-top: 120px;
-  top: -100%; /* Start from above the viewport */
-  left: 0;
-  transition: top 3s ease-in-out; /* Add a transition on the 'top' property */
+  display: block; /* Display the mobile menu */
+  position: fixed; /* Fix the menu to the viewport */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  z-index: 98; /* Places the menu below the navbar */
+  background-color: #0D0D0D; /* Background color of the menu */
+  padding-top: 120px; /* Adjust padding as needed */
+  top: -200vh; /* Start from above the viewport */
+  left: 0; /* Align to the left */
+  transition: top 0.4s ease-in-out; /* Add a transition on the 'top' property */
 }
 
 .mobile-nav.open {
-  top: 0; /* Move to the top of the viewport when the 'open' class is added */
+
+  top: 0vh; /* Move to the top of the viewport when the 'open' class is added */
+}
+
+.mobile-nav.close {
+  display: none; /* Hide the menu when the 'close' class is added */
 }
 
 .mobile-nav ul {
-  list-style-type: none;
+  list-style-type: none; /* Removes bullet points from the entire list */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
 }
@@ -75,38 +83,37 @@ body {
 .mobile-nav a {
   display: block;
   margin: auto; /* This will center the a tags */
-  text-align: center; 
-  padding: 12px 16px;
-  text-decoration: none;
-  color: #F5F5F7;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
+  text-align: center; /* Aligns the text in the center */
+  padding: 12px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: "Roboto", sans-serif; /* Font family for the menu items */
+  font-weight: 700; /* Bold font weight */
+  font-size: 18px; /* Font size for menu items */
   padding: 20px;  /* Adjust padding as necessary, but keep it symmetrical */
 }
 
-
-
 .hamburger-menu {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  padding: 0;
+  background-color: transparent; /* Transparent background */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Changes cursor to pointer */
+  display: flex; /* Enable Flexbox */
+  padding: 0; /* Removes default padding */
 }
+
 .line {
-  fill: none;
-  stroke: #F5F5F7;
-  stroke-width: 6;
+  fill: none; /* Removes fill color */
+  stroke: #F5F5F7; /* White stroke color */
+  stroke-width: 6; /* Stroke width */
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1); /* Add a transition effect */
 }
 .line1 {
-  stroke-dasharray: 60 207;
-  stroke-width: 4;
+  stroke-dasharray: 60 207; /* Stroke dash array */
+  stroke-width: 4; /* Stroke width */
 }
 .line2 {
-  stroke-dasharray: 60 60;
+  stroke-dasharray: 60 60; 
   stroke-width: 4;
 }
 .line3 {
@@ -139,123 +146,101 @@ body {
 @media (max-width: 1024px) {
 
   .hamburger-menu {
-      margin-top: 5px;
+      margin-top: 5px; /* Adjust margin as needed */
       display :inline-block; /*or inline works as well*/
-      position : absolute;
-      right : 0;
+      position : absolute; /* Position the hamburger menu */
+      right : 0; /* Align the menu to the right */
   }
 
   .hamburger-menu svg {
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
+    width: 60px; /* Width of the hamburger menu */
+    height: 60px; /* Height of the hamburger menu */
+    margin-right: 20px; /* Adjust margin as needed */
   }
 
   .logo { 
-    padding: 20px 20px 10px 20px;
-    display : flex;
-    align-items: center;
-    justify-content : center;
-}
+    padding: 20px 20px 10px 20px; /* Adjust padding as needed */
+    display : flex; /* Enable Flexbox */
+    align-items: center; /* Aligns the items vertically center */
+    justify-content : center; /* Aligns the items horizontally center */
+  }
 
   .logo img {
-      width: 130px;
+      width: 130px; /* Width of the logo */
   }
 
   #navigation {
     display: none; /* Hide the navigation menu on desktop */
   }
-
-  html, body {
-    height: 100%; /* Full height */
-    overflow: auto; /* Allow scrolling */
-    margin: 0; /* Remove default margin */
-  }
-
 }
-
-.mobile-nav {
-  display: none; /* Hide the menu by default */
-}
-
-.mobile-nav.close {
-  display: none; /* Hide the menu when the 'close' class is added */
-}
-
-.mobile-nav.open {
-  display: block; /* Show the menu when the 'open' class is added */
-}
- 
-/* SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS */
+/* SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS */
 
 .title {
-  display: flex;
-  margin-top: 50px;        /* Oberer äußerer Abstand */
+  display: flex; /* Enable Flexbox */
+  margin-top: 50px; /* Oberer äußerer Abstand */
 }
 
 h1 {
-  font-size: 50pt;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  margin: 0;
+  font-size: 50pt; /* Font size for the title */
+  font-family: "Roboto", sans-serif; /* Font family for the title */
+  font-weight: 700; /* Bold font weight */
+  margin: 0; /* Removes default margin */
 }
 
 h2 {
-  font-size: 30pt;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  margin: 0;
+  font-size: 30pt; /* Font size for the title */
+  font-family: "Roboto", sans-serif; /* Font family for the title */
+  font-weight: 700; /* Bold font weight */
+  margin: 0; /* Removes default margin */
 }
 
 h3 {
-  font-size: 14pt;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  margin: 0;
+  font-size: 14pt; /* Font size for the title */
+  font-family: "Roboto", sans-serif; /* Font family for the title */
+  font-weight: 700; /* Bold font weight */
+  margin: 0; /* Removes default margin */
 }
 
 p {
-  font-size: 14pt;
-  font-family: Arial, Helvetica, sans-serif
-  font-weight: 400;
-  margin: 0;
+  font-size: 14pt; /* Font size for the text */
+  font-family: Arial, Helvetica, sans-serif; /* Font family for the text */
+  font-weight: 400; /* Normal font weight */
+  margin: 0; /* Removes default margin */
 }
 
 .highlight {
-  color: #2DCB74;
+  color: #2DCB74; /* Green color for the text */
 }
 
 #white {
-  color: #F5F5F7;
+  color: #F5F5F7; /* White color for the text */
 }
 
 #green {
-  color: #2DCB74;
+  color: #2DCB74; /* Green color for the text */
 }
 
 .intro {
-  display: flex;
-  margin-top: 20px;
+  display: flex; /* Enable Flexbox */
+  margin-top: 20px; /* Oberer äußerer Abstand */
 }
 
 #parkraum {
-  margin-top: 50px;
+  margin-top: 50px; /* Oberer äußerer Abstand */
 }
 
 .flex-item {
-  flex: 0 0 50%;
-  padding-right: 30px;
-}
-
-.flex-item p {
-  
+  flex: 0 0 50%; /* Flexbox item width */
+  padding-right: 30px; /* Rechter innerer Abstand */
 }
 
 .flex-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
+  max-width: 100%; /* Max width for images */
+  height: auto; /* Auto height for images */
+  border-radius: 15px; /* Rundet die Ecken ab */
 }
+
+/* DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN */
 
 .dropdown-div {
   display: none;
@@ -287,50 +272,85 @@ p {
   border: none; /* Add this line to remove any default borders */
   outline: none; /* Removes focus outline */
   box-shadow: none; /* Ensures no shadows are applied */
+  top: -200vh; /* Start from above the viewport */
+  left: 0;
+  transition: top 5s ease-in-out; /* Add a transition on the 'top' property */
 }
 
+#standort-button.open {
+  top: 0vh; /* Move to the top of the viewport when the 'open' class is added */
+}
+
+#standort-button.close {
+  display: none; /* Hide the menu when the 'close' class is added */
+}
 
 .svg-dropdown {
-  width: 30px;
-  height: 30px;
-  stroke: #2DCB74;
+  width: 30px; /* Width of the SVG */
+  height: 30px; /* Height of the SVG */
+  stroke: #2DCB74; /* Green stroke color */
 }
 
 #button-text {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 18px; /* Font size for the text */
 }
 
 
 .loop-check-div {
-  width: auto;
-  margin-left: 20px;
-  padding: 20px 0;
-  color: #0D0D0D;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 13pt;
+  width: 200px; /* Breite des Dropdowns */
+  height: auto; /* Höhe des Dropdowns */
+  margin: 5px 0 0 5px; /* Abstand zum Text */
+  padding-left: 20px; /* Abstand zum Text */
+  color: #0D0D0D; /* Text color */
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 13pt; /* Font size for the text */
+}
+
+.loop-box {
+  height: 300px; /* Höhe des Dropdowns */
+  display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Aligns the items vertically */
+  flex-wrap: wrap; /* Wraps the items */
+  align-content: space-between; /* Distributes space between the items */
 }
 
 #standort {
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border-radius: 50%;
-  align-items: center;
+  width: 15px; /* Width of the SVG */
+  height: 15px; /* Height of the SVG */
+  background-color: #F5F5F7; /* Light grey background */
+  border-radius: 50%; /* Rounds the corners */
+  transform: scale(1); /* Scales the SVG */
+}
+
+/* DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER */
+
+.datepicker {
+  background-color: #F5F5F7; /* Hintergrundfarbe */
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* aligns items horizontally in the center */
+  align-items: center; /* aligns items vertically in the center */
+  gap: 10px; /* adds some space between the text and the SVG */
+  border-radius: 5px; /* Rundet die Ecken ab */
+  border: none; /* Add this line to remove any default borders */
+  outline: none; /* Removes focus outline */
+  box-shadow: none; /* Ensures no shadows are applied */
+  width: auto; /* Adjust width as needed */
+  color: #0D0D0D; /* Text color */
 }
 
 
-/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 
 .footer {
   border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
-  color: #2DCB74;
-  margin-top: 100px;
-  padding: 70px 0;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 13pt;
+  color: #2DCB74; /* Green color for the text */
+  margin-top: 100px; /* Oberer äußerer Abstand */
+  padding: 70px 0; /* Adds padding */
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 13pt; /* Font size for the text */
+  text-align: center; /* Aligns the text in the center */
 }
