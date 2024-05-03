@@ -346,6 +346,20 @@ p {
 
 .footer {
   border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
+  color: #2DCB74;
+  margin-top: 100px;
+  padding: 70px 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+}
+
+/* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
+
+#dotMap {
+  background: url(/img/zuerich_map.png) no-repeat center center;
+}
   color: #2DCB74; /* Green color for the text */
   margin-top: 100px; /* Oberer äußerer Abstand */
   padding: 70px 0; /* Adds padding */
