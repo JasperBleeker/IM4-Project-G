@@ -12,21 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // console.log('Data fetched:', data);  // Check the fetched data
 
             const ctx = document.getElementById('lineChart').getContext('2d');
-            // const dataset = data.map(lot => {
-            //     let yValue;
-            //     if (lot.total === 0) {
-            //         yValue = lot.free;
-            //     } else {
-            //         const used = lot.total - lot.free;
-            //         const percentageUsed = (used / lot.total) * 100;
-            //         yValue = percentageUsed.toFixed(2);
-            //     }
-            //     console.log('Processing lot:', lot);  // Log each lot being processed
-            //     return {
-            //         x: new Date(lot.created), // Parse the date string into a Date object
-            //         y: parseFloat(yValue)
-            //     };
-            // });
 
             const filteredData = data.filter(parking => parking.name === 'Uni Irchel');
 
@@ -66,9 +51,9 @@ const chartOptions = {
             time: {
                 unit: 'hour',
                 displayFormats: {
-                    hour: 'MMM dd, HH:mm'
+                    hour: 'MMM dd, HH'
                 },
-                tooltipFormat: 'MMM dd, yyyy HH:mm'
+                tooltipFormat: 'MMM dd, yyyy HH'
             },
             title: {
                 display: true,
