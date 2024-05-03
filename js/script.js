@@ -10,6 +10,23 @@ menu_btn.addEventListener('click', () => {
   menu.classList.toggle('open');
 });
 
+// Standort Dropdown
+
+document.addEventListener('DOMContentLoaded', function() {
+  const button = document.querySelector('.standort-button');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  button.addEventListener('click', function() {
+      // Wechselt die Sichtbarkeit des Dropdown-Inhalts
+      if (dropdownContent.style.display === 'none') {
+          dropdownContent.style.display = 'block';
+      } else {
+          dropdownContent.style.display = 'none';
+      }
+  });
+});
+
+
 
 // Marquee Effect
   function Marquee(selector, speed) {

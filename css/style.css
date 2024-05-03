@@ -1,9 +1,13 @@
-body {
+body {  
+  margin-left: 5%;        /* Linker äußerer Abstand */
+  margin-right: 5%;       /* Rechter äußerer Abstand */
   background-color: #0D0D0D;
   font-family: Arial, Helvetica, sans-serif;
   color: #F5F5F7; /* Optional: Changes text color to white for better visibility */
 }
  
+/* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
+
 .navbar {
   display: flex;          /* Enable Flexbox */
   justify-content: space-around; /* Distribute space between the items */
@@ -179,3 +183,75 @@ body {
   display: block; /* Show the menu when the 'open' class is added */
 }
  
+/* SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS */
+
+.title {
+  display: flex;
+  margin-top: 50px;        /* Oberer äußerer Abstand */
+}
+
+h1 {
+  font-size: 50pt;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2 {
+  font-size: 30pt;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+h3 {
+  font-size: 14pt;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+p {
+  font-size: 14pt;
+  font-family: Arial, Helvetica, sans-serif
+  font-weight: 400;
+  margin: 0;
+}
+
+.highlight {
+  color: #2DCB74;
+}
+
+#white {
+  color: #F5F5F7;
+}
+
+#green {
+  color: #2DCB74;
+}
+
+.intro {
+  display: flex;
+  margin-top: 20px;
+}
+
+#parkraum {
+  margin-top: 50px;
+}
+
+.flex-item {
+  flex: 0 0 50%;
+}
+
+.flex-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.dropdown-content { 
+  background-color: white;
+}
+
+
+
+

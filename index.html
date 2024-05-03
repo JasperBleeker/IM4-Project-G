@@ -35,7 +35,7 @@
 
             <div class="logo">
             <a href="index.html">
-                <img src="/img/logo_zurigo_parking.png" alt="Parking Zurich Urania Logo">
+                <img src="/img/logo_zurigo_parking.png" alt="Zurigo Parking Logo">
             </a>
              </div>
             <div id="navigation">
@@ -64,22 +64,25 @@
         </nav>
 
         <section id="parkplatzmonitor">
-            <h1> PARKPLATZMONITOR STADT ZÜRICH.</h1>
-            <h3>Parkraum Zürich dynamisch und interaktiv erforscht.</h3>
+            <div class="title">
+                <h1 id="white">PARKPLATZMONITOR STADT&nbsp;</h1>
+                <h1 id="green">ZÜRICH.</h1>
+            </div>
+            <h3 id="parkraum">Parkraum Zürich dynamisch und interaktiv erforscht.</h3>
             <div class="intro">
                 <div class="flex-item">
                     <p>
-                        In der pulsierenden Stadt Zürich ist die Suche nach einem Parkplatz oft mehr als nur ein
+                        In der pulsierenden Stadt <span class="highlight">Zürich</span>&nbsp;ist die Suche nach einem Parkplatz oft mehr als nur ein
                         praktisches Bedürfnis – es ist ein tägliches Puzzle, das Geschick und Timing erfordert. Mit
-                        unserem neuen Projekt "Parkplatzmonitor Stadt Zürich" bieten wir eine umfassende und interaktive
-                        Visualisierung der Parkplatzsituation in der gesamten Stadt.<br>Durch die Datenvisualisierung
-                        und Analysen – von der Auslastung in den einzelnen Bezirken bis hin zu den Hauptnutzungszeiten –
+                        unserem neuen Projekt "Parkplatzmonitor Stadt Zürich" bieten wir eine umfassende und <span class="highlight">interaktive
+                        </span>Visualisierung der Parkplatzsituation in der gesamten Stadt.<br><br>Durch die <span class="highlight">Datenvisualisierung
+                        und Analysen</span> – von der Auslastung in den einzelnen Bezirken bis hin zu den Hauptnutzungszeiten –
                         ermöglichen wir es Einwohnern und Besuchern, die Parkplatzdynamik besser zu verstehen und
                         effizient zu navigieren.
                     </p>
                 </div>
                 <div class="flex-item">
-                    <img src="" alt="">
+                    <img src="/img/parking-zuerich-urania-08.jpg" alt="Foto von aussen vom Parkhaus Urania">
                 </div>
             </div>
         </section>
@@ -139,8 +142,18 @@
 
             <div class="selector">
                 <div class="standort">
-                    <!-- PLATZHALTER HIER KOMMT STADORTWAHL!!! -->
+                    <button class="standort-button">
+                        <span>Standort auswählen</span>
+                        <svg class="icon-placeholder" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                        </svg>
+                    </button>
+                    <div class="dropdown-content" style="display:none;">
+                        <!-- Platzhalter für Inhalte, die beim Klicken angezeigt werden sollen -->
+                        <p>Wählen Sie einen Standort aus der Liste.</p>
+                    </div>
                 </div>
+                
                 <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
             </div>
 
