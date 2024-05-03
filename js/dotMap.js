@@ -3,17 +3,39 @@ document.addEventListener('DOMContentLoaded', () => {
     let validData; // Define validData in a scope accessible to other functions
     let bubbleChart; // Declare bubbleChart in a scope accessible to other functions
 
+    // Function to process the raw data from the API
+    function processData(data) {
+        return data.map(item => {
+            const { created, location, free, total } = item;
+            const [date, time] = created.split(' ');
+
+            if (location) {
+                const [latitude, longitude] = location.split(',');
+                return {
+                    date,
+                    time,
+                    coordinates: {
+                        latitude: parseFloat(latitude),
+                        longitude: parseFloat(longitude)
+                    },
+                    free,
+                    total
+                };
+            } else {
+                return null;  // Or handle no-location scenario appropriately
+            }
+        }).filter(item => item !== null); // Filter out any null entries if location is missing
+    }
+
+
     // Function to update the bubble chart based on selected date and hour
     function updateChart(selectedDate, selectedHour) {
         try {
             console.log("Updating chart with date:", selectedDate, "and hour:", selectedHour);
     
             // Filter data based on selected date
-            const dataForSelectedDate = validData.filter(lot => lot.created.startsWith(selectedDate));
-    
-            // Further filter data based on selected hour
-            const dataForSelectedHour = dataForSelectedDate.filter(lot => new Date(lot.created).getHours() === selectedHour);
-    
+            const dataForSelectedDate = validData.filter(lot => lot.date === selectedDate && lot.time.startsWith(selectedHour));
+
             // Update chart with filtered data
             const updatedDatasets = [{
                 label: 'Parking Lots',
@@ -48,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            validData = processData(data); // Process the raw data
+            
             const ctx = document.getElementById('dotMap').getContext('2d');
 
             // Filter out any entries that do not have a valid location
@@ -108,14 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Add event listener to slider
-            const slider = document.getElementById('myRange');
-            slider.addEventListener('input', () => {
-                const selectedDate = datePicker.value; // Get current value of date picker
-                const selectedHour = slider.value;
-                updateChart(selectedDate, selectedHour);
-                //Console log the selected hour for debugging
-                console.log('Selected hour:', selectedHour);
-            });
+            // const slider = document.getElementById('myRange');
+            // slider.addEventListener('input', () => {
+            //     const selectedDate = datePicker.value; // Get current value of date picker
+            //     const selectedHour = slider.value;
+            //     updateChart(selectedDate, selectedHour);
+            //     //Console log the selected hour for debugging
+            //     console.log('Selected hour:', selectedHour);
+            // });
 
             // Load initial chart data
             const initialDate = datePicker.value;
