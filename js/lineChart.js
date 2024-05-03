@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //     };
             // });
 
-            const filteredData = data.filter(parking => parking.name === 'Uni Irchel');
+            const filteredData = data.filter(parking => parking.name === 'Pfingstweid');
 
             // console.log('Filtered data:', filteredData);  // Check the filtered data
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: {
                     labels: datalabels,
                     datasets: [{
-                        label: 'Parking Lot Utilization',
+                        label: 'Parking lot utilization %',
                         data: ParkingData,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1
