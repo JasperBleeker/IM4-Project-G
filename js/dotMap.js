@@ -131,15 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Selected date:', selectedDate);
             });
 
-            // Add event listener to slider
-            // const slider = document.getElementById('myRange');
-            // slider.addEventListener('input', () => {
-            //     const selectedDate = datePicker.value; // Get current value of date picker
-            //     const selectedHour = slider.value;
-            //     updateChart(selectedDate, selectedHour);
-            //     //Console log the selected hour for debugging
-            //     console.log('Selected hour:', selectedHour);
-            // });
+            //Add event listener to slider
+            const slider = document.getElementById('myRange');
+            slider.addEventListener('input', () => {
+                const selectedDate = datePicker.value; // Get current value of date picker
+                const selectedHour = slider.value;
+                updateChart(selectedDate, selectedHour);
+                //Console log the selected hour for debugging
+                console.log('Selected hour:', selectedHour);
+            });
 
             // Load initial chart data
             const initialDate = datePicker.value;
