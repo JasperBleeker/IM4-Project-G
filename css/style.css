@@ -11,7 +11,17 @@ body {
   margin-left: 5%; /* Linker äußerer Abstand */
   margin-right: 5%; /* Rechter äußerer Abstand */
 }
- 
+
+@media (max-width: 1024px) {
+
+  .border-box {
+    margin-left: 16px; /* Linker äußerer Abstand */
+    margin-right: 16px; /* Rechter äußerer Abstand */
+  }
+
+
+}
+
 /* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
 
 .navbar {
@@ -110,30 +120,30 @@ body {
 }
 .line1 {
   stroke-dasharray: 60 207; /* Stroke dash array */
-  stroke-width: 4; /* Stroke width */
+  stroke-width: 6; /* Stroke width */
 }
 .line2 {
   stroke-dasharray: 60 60; 
-  stroke-width: 4;
+  stroke-width: 6;
 }
 .line3 {
   stroke-dasharray: 60 207;
-  stroke-width: 4;
+  stroke-width: 6;
 }
 .opened .line1 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
-  stroke-width: 4;
+  stroke-width: 6;
 }
 .opened .line2 {
   stroke-dasharray: 1 60;
   stroke-dashoffset: -30;
-  stroke-width: 4;
+  stroke-width: 6;
 }
 .opened .line3 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
-  stroke-width: 4;
+  stroke-width: 6;
 }
 
 /* Media query for desktop screens */
@@ -175,6 +185,11 @@ body {
 }
 /* SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS */
 
+section {
+  margin: 100px 0; /* Oberer und unterer äußerer Abstand */
+}
+
+
 .title {
   display: flex; /* Enable Flexbox */
   margin-top: 50px; /* Oberer äußerer Abstand */
@@ -191,7 +206,7 @@ h2 {
   font-size: 30pt; /* Font size for the title */
   font-family: "Roboto", sans-serif; /* Font family for the title */
   font-weight: 700; /* Bold font weight */
-  margin: 0; /* Removes default margin */
+  margin: 0 0 20px 0; /* Removes default margin */
 }
 
 h3 {
@@ -240,6 +255,34 @@ p {
   border-radius: 15px; /* Rundet die Ecken ab */
 }
 
+@media (max-width: 1024px) {
+
+  .title, .intro {
+    flex-direction: column;
+  }
+
+  #reverse {
+    flex-direction: column-reverse;
+  }
+
+  h1 {
+    font-size: 35pt; /* Adjust font size as needed */
+  }
+
+  h2 {
+    font-size: 20pt; /* Adjust font size as needed */
+  }
+
+  .flex-item {
+    flex: 0 0 100%; /* Flexbox item width */
+    padding-right: 0; /* Rechter innerer Abstand */
+  }
+
+  .flex-item img {
+    margin-bottom: 15px; /* Removes border radius */
+  }
+}
+
 /* DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN DROPDOWN */
 
 .dropdown-div {
@@ -252,6 +295,7 @@ p {
   font-weight: 700;
   margin-left: 20px;
   color: black;
+  margin-bottom: 10px;
 }
 
 #dropdown {
@@ -289,6 +333,7 @@ p {
   width: 30px; /* Width of the SVG */
   height: 30px; /* Height of the SVG */
   stroke: #2DCB74; /* Green stroke color */
+  transition: transform 0.3s ease; /* Add a transition effect */
 }
 
 #button-text {
@@ -327,38 +372,106 @@ p {
 
 /* DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER */
 
-.datepicker {
-  background-color: #F5F5F7; /* Hintergrundfarbe */
+.selector {
   display: flex; /* Enable Flexbox */
-  justify-content: center; /* aligns items horizontally in the center */
-  align-items: center; /* aligns items vertically in the center */
-  gap: 10px; /* adds some space between the text and the SVG */
-  border-radius: 5px; /* Rundet die Ecken ab */
-  border: none; /* Add this line to remove any default borders */
-  outline: none; /* Removes focus outline */
-  box-shadow: none; /* Ensures no shadows are applied */
-  width: auto; /* Adjust width as needed */
-  color: #0D0D0D; /* Text color */
+  width: 100%; /* Adjust width as needed */
 }
 
+.datepicker {
+  background-color: #F5F5F7; /* Hintergrundfarbe */
+  width: auto; /* Adjust width as needed */
+  color: #0D0D0D; /* Text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 5px 10px;
+}
+
+.slider-div {
+  width: 300px; /* Adjust width as needed */
+  display: flex; /* Enable Flexbox */
+  justify-content: end;
+  align-items: center; /* Aligns the items vertically center */
+  margin-left: auto; /* Aligns the slider to the right */
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.slider {
+  width: 100%; /* Adjust width as needed */
+  -webkit-appearance: none;
+  height: 15px;
+  border-radius: 5px;
+  background: #F5F5F7;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2DCB74;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2DCB74;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+
+  .loop-box {
+    height: 700px; /* HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER */
+  }
+
+  #dropdown {
+    height:750px;
+  }
+
+  .slider-div {
+    width: 130px;
+  }
+
+}
 
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 
 .footer {
   border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
-  color: #2DCB74;
-  margin-top: 100px;
-  padding: 70px 0;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 13pt;
+  color: #2DCB74;  /* Green color for the text */
+  margin-top: 100px; /* Oberer äußerer Abstand */
+  padding: 70px 0; /* Adds padding */
+  text-align: center; /* Aligns the text in the center */
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 13pt; /* Font size for the text */
+}
+
+.footer p {
+  margin: 20px 0;
 }
 
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
 
 #dotMap {
-  background: url(/img/zuerich_map.png) no-repeat center center;
+  background: url(/img/zuerich_map.png) no-repeat center center; /* Background image */
+  margin: 40px 0; /* Oberer und unterer äußerer Abstand */
 }
   color: #2DCB74; /* Green color for the text */
   margin-top: 100px; /* Oberer äußerer Abstand */
@@ -368,3 +481,5 @@ p {
   font-size: 13pt; /* Font size for the text */
   text-align: center; /* Aligns the text in the center */
 }
+
+

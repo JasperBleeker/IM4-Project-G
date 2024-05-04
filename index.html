@@ -17,7 +17,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 </head>
 
@@ -26,56 +28,60 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <nav class="navbar">
-            <div id="navigation">
-                <ul class="menu">
-                    <li class="list-items"><a href="app.html">FREIE PARKPLÄTZE</a></li>
-                </ul>
-            </div>
+    <nav class="navbar">
+        <div id="navigation">
+            <ul class="menu">
+                <li class="list-items"><a href="app.html">FREIE PARKPLÄTZE</a></li>
+            </ul>
+        </div>
 
-            <div class="logo">
+        <div class="logo">
             <a href="index.html">
                 <img src="/img/logo_zurigo_parking.png" alt="Zurigo Parking Logo">
             </a>
-             </div>
-            <div id="navigation">
-                <ul class="menu">
-                    <li class="list-items"><a href="#parkplatzmonitor">PARKPLATZMONITOR</a></li>
-                </ul>
-            </div>
-            <button class="hamburger-menu"
-                onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
-                aria-label="Main Menu">
-                <svg width="100" height="100" viewBox="0 0 100 100">
-                    <path class="line line1"
-                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                    <path class="line line2" d="M 20,50 H 80" />
-                    <path class="line line3"
-                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-                </svg>
-            </button>
-        </nav>
-
-        <nav class="mobile-nav">
-            <ul>
-                <li class="menu"><a href="app.html">FREIE PARKPLÄTZE</a></li>
-                <li class="menu"><a href="#parkplatzmonitor">PARKPLATZMONITOR</a></li>
+        </div>
+        <div id="navigation">
+            <ul class="menu">
+                <li class="list-items"><a href="#parkplatzmonitor">PARKPLATZMONITOR</a></li>
             </ul>
-        </nav>
-<div class="border-box">
+        </div>
+        <button class="hamburger-menu"
+            onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+            aria-label="Main Menu">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <path class="line line1"
+                    d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                <path class="line line2" d="M 20,50 H 80" />
+                <path class="line line3"
+                    d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            </svg>
+        </button>
+    </nav>
+
+    <nav class="mobile-nav">
+        <ul>
+            <li class="menu"><a href="app.html">FREIE PARKPLÄTZE</a></li>
+            <li class="menu"><a href="#parkplatzmonitor">PARKPLATZMONITOR</a></li>
+        </ul>
+    </nav>
+    <div class="border-box">
         <section id="parkplatzmonitor">
             <div class="title">
                 <h1 id="white">PARKPLATZMONITOR STADT <span id="green">ZÜRICH</span></h1>
             </div>
             <h3 id="parkraum">Parkraum Zürich dynamisch und interaktiv erforscht.</h3>
-            <div class="intro">
+            <div class="intro" id="reverse">
                 <div class="flex-item">
                     <p>
-                        In der pulsierenden Stadt <span class="highlight">Zürich</span>&nbsp;ist die Suche nach einem Parkplatz oft mehr als nur ein
+                        In der pulsierenden Stadt <span class="highlight">Zürich</span>&nbsp;ist die Suche nach einem
+                        Parkplatz oft mehr als nur ein
                         praktisches Bedürfnis – es ist ein tägliches Puzzle, das Geschick und Timing erfordert. Mit
-                        unserem neuen Projekt "Parkplatzmonitor Stadt Zürich" bieten wir eine umfassende und <span class="highlight">interaktive
-                        </span>Visualisierung der Parkplatzsituation in der gesamten Stadt.<br><br>Durch die <span class="highlight">Datenvisualisierung
-                        und Analysen</span> – von der Auslastung in den einzelnen Bezirken bis hin zu den Hauptnutzungszeiten –
+                        unserem neuen Projekt "Parkplatzmonitor Stadt Zürich" bieten wir eine umfassende und <span
+                            class="highlight">interaktive
+                        </span>Visualisierung der Parkplatzsituation in der gesamten Stadt.<br><br>Durch die <span
+                            class="highlight">Datenvisualisierung
+                            und Analysen</span> – von der Auslastung in den einzelnen Bezirken bis hin zu den
+                        Hauptnutzungszeiten –
                         ermöglichen wir es Einwohnern und Besuchern, die Parkplatzdynamik besser zu verstehen und
                         effizient zu navigieren.
                     </p>
@@ -87,269 +93,277 @@
         </section>
 
 
-    <main>
+        <main>
 
-        <!-- GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 ------------------------------------------------>
+            <!-- GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 ------------------------------------------------>
 
-        <section id="section_dotMap">
+            <section id="section_dotMap">
 
-            <h2>AUSLASTUNG UMS ZENTRUM.</h2>
+                <h2>AUSLASTUNG UMS <span id="green">ZENTRUM.</span></h2>
 
-            <div class="selector">
+                <div class="selector">
 
-                <div class="datepicker">
-                    <p>TAG AUSWÄHLEN</p>
-                    <input type="date" id="datePicker" name="datemin" min="2024-05-01">
+                    <div class="datepicker">
+                        <p id="button-text">TAG AUSWÄHLEN</p>
+                        <input type="date" id="datePicker" name="datemin" min="2024-05-01">
+                    </div>
+
+                    <div class="slider-div">
+                        <input type="range" min="0" max="23" value="12" class="slider" id="myRange">
+                    </div>
+
                 </div>
 
-                <div class="slider">
-                    <input type="range" min="0" max="23" value="12" class="slider" id="myRange">
+                <!-- Jasper's Baustelle. DO NOT TOUCH!-->
+                <div class="dotMap">
+                    <canvas id="dotMap" width="400" height="400"></canvas>
                 </div>
-            </div>
+                <!-- Jasper's Baustelle. Ende-->
 
-            <!-- Jasper's Baustelle. DO NOT TOUCH!-->
-            <div class="dotMap">
-                <canvas id="dotMap" width="400" height="400"></canvas>
-            </div>
-            <!-- Jasper's Baustelle. Ende-->
+                <div class="text_analyse">
+                    <h2>TITEL 1</h2>
+                    <p><span id="green">Lorem</span> ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
 
-            <div class="text_analyse">
-                <h2>TITEL 1</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </section>
+
+            <div class="marquee">
+                <p>
+                    In der Stadt Zürich gibt es insgesamt rund 70 000 öffentlich zugängliche Parkplätze für Autos. Davon
+                    befinden sich etwa 30 Prozent aller Parkplätze in Parkhäusern.
                 </p>
             </div>
 
-        </section>
+            <!-- GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 ------------------------------------------------>
 
-        <div class="marquee">
-            <p>
-                In der Stadt Zürich gibt es insgesamt rund 70 000 öffentlich zugängliche Parkplätze für Autos. Davon
-                befinden sich etwa 30 Prozent aller Parkplätze in Parkhäusern.
-            </p>
-        </div>
+            <section id="section_lineChart">
 
-        <!-- GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 ------------------------------------------------>
+                <h2>AUSLASTUNG <span id="green">ZÜRICH.</span></h2>
 
-        <section id="section_lineChart">
+                <div class="selector">
+                    <div class="standort">
+                        <button id="standort-button">
+                            <span id="button-text">STANDORT AUSWÄHLEN</span>
+                            <svg class="svg-dropdown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="#2DCB74" />
+                            </svg>
+                        </button>
+                    </div>
 
-            <h2>AUSLASTUNG ZÜRICH.</h2>
 
-            <div class="selector">
-                <div class="standort">
-                    <button id="standort-button">
-                        <span id="button-text">STANDORT AUSWÄHLEN</span>
-                        <svg class="svg-dropdown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#2DCB74"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </button>
+
+                    <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
                 </div>
-                
 
+                <div class="dropdown-div" id="dropdown">
+                    <p id="dropdown-title">PARKPLÄTZE & PARKHÄUSER</p>
+                    <div class="loop-box">
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 1</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 2</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 3</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 4</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 5</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 6</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 7</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
+                        <div class="loop-check-div" id="loop-check-id">
+                            <input type="checkbox" id="standort" name="standort" />
+                            <label for="scales">PARKHAUS 8</label>
+                        </div>
 
-                <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
-            </div>
-
-            <div class="dropdown-div" id="dropdown">
-                <p id="dropdown-title">PARKPLÄTZE & PARKHÄUSER</p>
-                <div class="loop-box">
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 1</label>
                     </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 2</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 3</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 4</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 5</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 6</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 7</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    <div class="loop-check-div" id="loop-check-id">
-                        <input type="checkbox" id="standort" name="standort"/>
-                        <label for="scales">PARKHAUS 8</label>
-                    </div>
-                    
                 </div>
-            </div>
 
-            <!-- Jasper's Baustelle. DO NOT TOUCH!-->
-            <div class="lineChart">
-                <canvas id="lineChart" width="400" height="400"></canvas>
-            </div>
-            <!-- Jasper's Baustelle. Ende-->
+                <!-- Jasper's Baustelle. DO NOT TOUCH!-->
+                <div class="lineChart">
+                    <canvas id="lineChart" width="400" height="400"></canvas>
+                </div>
+                <!-- Jasper's Baustelle. Ende-->
 
-            <div class="text_analyse">
-                <h2>TITEL 2</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </p>
-            </div>
+                <div class="text_analyse">
+                    <h2>TITEL 2</h2>
+                    <p><span id="green">Lorem</span> ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
 
-        </section>
+            </section>
 
-    </main>
-</div>
+        </main>
+    </div>
 
     <footer>
         <div class="footer">
             <p>©PROJECT-G</p>
+            <a href="/dvd.html" target="dvd">DVD</a>
         </div>
     </footer>
 
@@ -358,6 +372,7 @@
     <script src="/js/script.js" async defer></script>
     <script src="/js/dotMap.js"></script>
     <script src="/js/lineChart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
 

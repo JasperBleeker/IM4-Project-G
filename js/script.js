@@ -36,3 +36,17 @@ mybtn.addEventListener("click", function () {
   }
   
   window.addEventListener('load', () => Marquee('.marquee', .3));
+
+
+// rotate svg dropdown
+
+let rotated = false;
+
+$('#standort-button').click(function() {
+  if (rotated) {
+    $('.svg-dropdown').css('transform', 'rotate(0deg)');
+  } else {
+    $('.svg-dropdown').css('transform', 'rotate(180deg)');
+  }
+  rotated = !rotated;
+});
