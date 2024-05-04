@@ -461,10 +461,26 @@ p {
   font-family: "Roboto", sans-serif; /* Font family for the text */
   font-weight: 700; /* Bold font weight */
   font-size: 13pt; /* Font size for the text */
+  display: flex;
+  flex-direction: column;
 }
 
 .footer p {
   margin: 20px 0;
+}
+
+.footer a {
+  margin: 20px 0; /* Adjust as needed */
+}
+
+.instagram {
+  width: 40px; /* Width of the SVG */
+  height: 40px; /* Height of the SVG */
+  fill: #2DCB74; /* Green fill color */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
