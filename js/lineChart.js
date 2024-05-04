@@ -4,9 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // API-URL
     const apiUrl = 'https://project-g.data.dynamicvisualscollective.ch/php/unload.php';
 
-    // Deklarierung der Variablen
+    // Deklarierung der Variablen für alle Funktionen
     let lineChart;
     let checkedLocations = [];
+    let allData = [];
+
+    // Eventlistener für Start- und Enddatum
+    document.getElementById('startDate').addEventListener('change', updateChartBasedOnDateAndLocation);
+    document.getElementById('endDate').addEventListener('change', updateChartBasedOnDateAndLocation);
+
+    // Funktion für Chart Farben
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r},${g},${b})`;
+    }
+
 
     // Fetchen der Daten und Erstellen des Charts
     fetch(apiUrl)
@@ -18,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             // console.log('Data fetched:', data);  // Check the fetched data
+            allData = data;
             createCheckbox(data);
             initializeChart(data);
         })
@@ -32,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach(location => {
             if (!uniqueLocations.has(location.name)) {
                 uniqueLocations.add(location.name);
-            
+
                 const checkboxContainer = document.createElement('div');
                 checkboxContainer.classList.add('loop-check-div');
 
@@ -67,38 +82,62 @@ document.addEventListener('DOMContentLoaded', () => {
                     .map(location => location.name);
 
                 console.log('Checked locations:', checkedLocations);
+                updateChart(checkedLocations);
             });
         });
     }
-    
+
+    function updateChartBasedOnDateAndLocation() {
+    let selectedLocations = Array.from(document.querySelectorAll('.locationCheckbox'))
+                                 .filter(checkbox => checkbox.checked)
+                                 .map(checkbox => checkbox.name);
+    updateChart(selectedLocations);
+}
+
 
     // Initialisierung des Charts
-    function initializeChart(data) {
+    function updateChart(selectedLocations) {
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        endDate.setHours(23, 59, 59, 999); // Set the end date to the end of the day
 
-        const ctx = document.getElementById('lineChart').getContext('2d');
+        const datasets = []; // Array to store the datasets for each location
 
-        const filteredData = data.filter(parking => parking.name === 'Uni Irchel');
+        selectedLocations.forEach(location => {
+        const filteredData = allData.filter(item => {
+            const itemDate = new Date(item.created);
+            return item.name === location && itemDate >= startDate && itemDate <= endDate;
+        });
 
-        // console.log('Filtered data:', filteredData);  // Check the filtered data
+        // Map the data for this location to the format required by the chart
+        const dataPoints = filteredData.map(lot => ({
+            x: new Date(lot.created),
+            y: Math.round((lot.total - lot.free) / lot.total * 100) // Assuming lot.total is never 0 @ Jasper
+        }));
 
-        const ParkingData = filteredData.map(lot => (Math.round((lot.total - lot.free) / lot.total * 100)));
+        // Create the dataset for this location
+        const dataset = {
+            label: `${location} utilization %`,
+            data: dataPoints,
+            borderColor: getRandomColor(),
+            fill: false,
+            tension: 0.1
+        };
 
-        // console.log('Dataset:', ParkingData);  // Check the processed dataset
+        datasets.push(dataset);
+    });
 
-        const datalabels = filteredData.map(lot => new Date(lot.created));
+    const ctx = document.getElementById('lineChart').getContext('2d');
+    if (lineChart) {
+        lineChart.destroy(); // Destroy the previous chart before creating a new one
+    }
 
-        // console.log('Data labels:', datalabels);  // Check the processed data labels
 
         lineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: datalabels,
-                datasets: [{
-                    label: 'Parking lot utilization %',
-                    data: ParkingData,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
+                datasets: datasets
+                
             },
             options: chartOptions  // Defined separately for clarity
         });
@@ -118,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 title: {
                     display: true,
-                    text: 'Time'
+                    text: 'Date'
                 }
             },
             y: {
@@ -134,8 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tooltip: {
                 callbacks: {
                     label: function (context) {
-                        const lot = context.dataset.data[context.dataIndex];
-                        return `${lot.name}: ${lot.total - lot.free} used spots of ${lot.total} total (${context.raw.y}%)`;
+                        const label = context.dataset.label;
+                        const value = context.raw.y;
+                        return `${label}: ${value}%`;
                     }
                 }
             }
