@@ -52,14 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // function updateChart(selectedDate, selectedHour) {
         function updateChart(selectedDate, selectedHour) {
             try {
-                console.log("Updating chart with date:", selectedDate, "and hour:", selectedHour);
+                // console.log("Updating chart with date:", selectedDate, "and hour:", selectedHour);
         
                 // Filter data based on selected date and hour
                 dataForSelectedHour = validData.filter(lot => lot.date == selectedDate && lot.newTime == selectedHour);
-                console.log('Data for selected date and hour:', dataForSelectedHour);
+                // console.log('Data for selected date and hour:', dataForSelectedHour);
         
                 if (dataForSelectedHour.length == 0) {
-                    console.log('No data available for the selected date and hour.');
+                    // console.log('No data available for the selected date and hour.');
                     return; // Exit the function if no data is available
                 }
         
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             validData = processData(data); // Process the raw data
-            console.log('Valid Data:', validData);
+            // console.log('Valid Data:', validData);
             const ctx = document.getElementById('dotMap').getContext('2d');
 
             
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedHour = document.getElementById('myRange').value; // Get current value of slider
                 updateChart(selectedDate, selectedHour);
                 //Console log the selected date for debugging
-                console.log('Selected date:', selectedDate);
+                // console.log('Selected date:', selectedDate);
             });
 
             //Add event listener to slider
@@ -168,14 +168,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedHour = slider.value;
                 updateChart(selectedDate, selectedHour);
                 //Console log the selected hour for debugging
-                console.log('Selected hour:', selectedHour);
+                // console.log('Selected hour:', selectedHour);
             });
 
             // Load initial chart data
             const initialDate = datePicker.value;
             const initialHour = slider.value;
-            console.log('Initial date:', initialDate);
-            console.log('Initial hour:', initialHour);
+            // console.log('Initial date:', initialDate);
+            // console.log('Initial hour:', initialHour);
             updateChart(initialDate, initialHour);
         })
         .catch(error => {
