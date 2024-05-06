@@ -592,6 +592,7 @@ p {
 
 #dotMap {
   background: url(/img/Zuerich.png) no-repeat center center; /* Background image */
+  background-size: 80%, 80%; /* Cover the entire container */
   margin: 40px 0; /* Oberer und unterer äußerer Abstand */
   color: #2DCB74; /* Green color for the text */
   margin-top: 100px; /* Oberer äußerer Abstand */
