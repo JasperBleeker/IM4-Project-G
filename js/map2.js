@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Leafelt map
     var map = L.map('map').setView([47.386, 8.542], 13);
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution: '&copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map);
 
     fetch(apiUrl)
