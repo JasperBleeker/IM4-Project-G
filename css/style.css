@@ -439,9 +439,9 @@ p {
 }
 
 .datepicker {
-  background-color: #F5F5F7; /* Hintergrundfarbe */
+  background-color: #2DCB74; /* Hintergrundfarbe */
   width: auto; /* Adjust width as needed */
-  color: #0D0D0D; /* Text color */
+  color: #F5F5F7; /* Text color */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -511,41 +511,66 @@ p {
 
 }
 
-/* MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE */
-
-.marquee-container {
-  display: flex;
-  align-items: center;
-  background: #2DCB74;
-  overflow: hidden;
+input[type="date"] {
+  background-color: #F5F5F7;
+  font-size: 14pt; /* Font size for the title */
+  font-family: "Roboto", sans-serif; /* Font family for the title */
+  font-weight: 700; /* Bold font weight */
+  margin: 0; /* Removes default margin */
+  color: #0D0D0D;
+  outline: none;
+  border-radius: 5px;
 }
 
+/* MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE */
+
+/* Marquee styles */
 .marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  width: 100vw; /* Setzt die Breite auf die volle Breite des Viewports */
+  margin-left: calc(-50vw + 50%); /* Zentriert das Element */
+  margin-right: calc(-50vw + 50%);
+  background-color: #2DCB74;
+  padding: 20px 0;
+  box-shadow: 10px 10px 20px #f5f5f758;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll 100s linear infinite; /* Applying the scroll animation */
+}
+
+.marquee-title {
   font-size: 50pt; /* Font size for the title */
   font-family: "Roboto", sans-serif; /* Font family for the title */
   font-weight: 700; /* Bold font weight */
-
-  margin: 0 -16px;
-  
-  padding: 24px 0;
-  color: #F5F5F7;
-  white-space: nowrap;
-  animation: marquee 10s infinite linear;
+  margin: 0; /* Removes default margin */
 }
 
-.marquee::after {
-  content: "LONDON - PARIS - SYNDEY - TOKYO - NEW-YORK - BERLIN - ROME - ";
-}
-
-@keyframes marquee {
-  0% {
-      transform: translatex(0);
+@keyframes scroll {
+  from {
+    transform: translateX(0);
   }
-  100% {
-      transform: translatex(-50%);
+  to {
+    transform: translateX(calc(-100% - var(--gap))); /* Ensure the gap is considered in the calculation */
   }
 }
 
+@media (max-width: 1024px) {
+
+  h1 {
+    font-size: 30pt; /* Adjust font size as needed */
+  }
+
+}
 
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 
