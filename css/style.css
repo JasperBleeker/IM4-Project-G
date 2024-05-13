@@ -200,6 +200,7 @@ h1 {
   font-family: "Roboto", sans-serif; /* Font family for the title */
   font-weight: 700; /* Bold font weight */
   margin: 0; /* Removes default margin */
+  white-space: nowrap; /* Prevents wrapping on larger screens */
 }
 
 h2 {
@@ -266,11 +267,23 @@ p {
   }
 
   h1 {
-    font-size: 35pt; /* Adjust font size as needed */
+    font-size: 40pt; /* Adjust font size as needed */
+    white-space: normal; /* Allows wrapping at the soft hyphen */
+    text-align: center; /* Aligns the text in the center */
+
   }
 
   h2 {
     font-size: 20pt; /* Adjust font size as needed */
+    text-align: center; /* Aligns the text in the center */
+  }
+
+  h3 {
+    font-size: 14pt; /* Font size for the title */
+    font-family: "Roboto", sans-serif; /* Font family for the title */
+    font-weight: 700; /* Bold font weight */
+    margin: 0; /* Removes default margin */
+    text-align: center; /* Aligns the text in the center */
   }
 
   .flex-item {
@@ -497,6 +510,42 @@ p {
   }
 
 }
+
+/* MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE MARQUEE */
+
+.marquee-container {
+  display: flex;
+  align-items: center;
+  background: #2DCB74;
+  overflow: hidden;
+}
+
+.marquee {
+  font-size: 50pt; /* Font size for the title */
+  font-family: "Roboto", sans-serif; /* Font family for the title */
+  font-weight: 700; /* Bold font weight */
+
+  margin: 0 -16px;
+  
+  padding: 24px 0;
+  color: #F5F5F7;
+  white-space: nowrap;
+  animation: marquee 10s infinite linear;
+}
+
+.marquee::after {
+  content: "LONDON - PARIS - SYNDEY - TOKYO - NEW-YORK - BERLIN - ROME - ";
+}
+
+@keyframes marquee {
+  0% {
+      transform: translatex(0);
+  }
+  100% {
+      transform: translatex(-50%);
+  }
+}
+
 
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 
