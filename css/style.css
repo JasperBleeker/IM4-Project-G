@@ -664,21 +664,23 @@ input[type="date"] {
 
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
 
-#dotMap {
-  background: url(/img/Zuerich.png) no-repeat center center; /* Background image */
-  background-size: 80%, 90%;  /*Cover the entire container */
-  margin: 40px 0; /* Oberer und unterer äußerer Abstand */
-  color: #2DCB74; /* Green color for the text */
-  margin-top: 100px; /* Oberer äußerer Abstand */
-  padding: 70px 0; /* Adds padding */
-  font-family: "Roboto", sans-serif; /* Font family for the text */
-  font-weight: 700; /* Bold font weight */
-  font-size: 13pt; /* Font size for the text */
-  text-align: center; /* Aligns the text in the center */
-}
+#map { height: 500px; }
 
-.dotMap {
-  aspect-ratio: 1/1; /* Aspect ratio of the container */
-}
+/* #dotMap {
+  background: url(/img/Zuerich.png) no-repeat center center; 
+  background-size: 80%, 90%;  
+  margin: 40px 0; 
+  color: #2DCB74; 
+  margin-top: 100px; 
+  padding: 70px 0; 
+  font-family: "Roboto", sans-serif; 
+  font-weight: 700; 
+  font-size: 13pt; 
+  text-align: center; 
+} */
+
+/* .dotMap {
+  aspect-ratio: 1/1; 
+} */
 
 
