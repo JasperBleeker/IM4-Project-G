@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // set the end date to the current date
     const today = new Date();
-    const currentDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+    const currentDate = today.toISOString().slice(0, 10);
     document.getElementById('endDate').value = currentDate;
 
     // set the max date to the current date
