@@ -35,7 +35,7 @@ $('#standort-button').click(function() {
 //Slider JS
 
 
-// Text Changer
+// Text Changer Footer
 let words = document.querySelectorAll(".word");
 words.forEach(word => {
   let letters = word.textContent.split("");
