@@ -444,6 +444,11 @@ p {
   width: 100%; /* Adjust width as needed */
 }
 
+@media screen and (max-width: 1024px){
+  
+  
+}
+
 .datepicker {
   background-color: #2DCB74; /* Hintergrundfarbe */
   width: auto; /* Adjust width as needed */
@@ -519,6 +524,11 @@ p {
 
   #dropdown {
     height:750px;
+  }
+
+  .selector {
+    flex-direction: column; /* Aligns the items vertically */
+    align-items: center; /* Aligns the items vertically center */
   }
 
   .slider-div {
@@ -673,7 +683,7 @@ input[type="date"] {
   }
 }
 
-// palette: https://flatuicolors.com/palette/defo
+/* palette: https://flatuicolors.com/palette/defo */
 .alizarin {
   color: #e74c3c;
 }
