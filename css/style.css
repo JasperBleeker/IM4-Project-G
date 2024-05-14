@@ -640,7 +640,7 @@ input[type="date"] {
   }
 }
 
-// palette: https://flatuicolors.com/palette/defo
+/* palette: https://flatuicolors.com/palette/defo */
 .alizarin {
   color: #e74c3c;
 }
@@ -665,22 +665,5 @@ input[type="date"] {
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
 
 #map { height: 500px; }
-
-/* #dotMap {
-  background: url(/img/Zuerich.png) no-repeat center center; 
-  background-size: 80%, 90%;  
-  margin: 40px 0; 
-  color: #2DCB74; 
-  margin-top: 100px; 
-  padding: 70px 0; 
-  font-family: "Roboto", sans-serif; 
-  font-weight: 700; 
-  font-size: 13pt; 
-  text-align: center; 
-} */
-
-/* .dotMap {
-  aspect-ratio: 1/1; 
-} */
 
 

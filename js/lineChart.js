@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('startDate').addEventListener('change', updateChartBasedOnDateAndLocation);
     document.getElementById('endDate').addEventListener('change', updateChartBasedOnDateAndLocation);
 
+    // set the end date to the current date
+    const today = new Date();
+    const currentDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+    document.getElementById('endDate').value = currentDate;
+
+    // set the max date to the current date
+    document.getElementById('endDate').max = currentDate;
+    document.getElementById('startDate').max = currentDate;
+
+    
+
     // Funktion für Chart Farben
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256);
