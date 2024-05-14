@@ -278,7 +278,7 @@ p {
   padding-right: 30px; /* Rechter innerer Abstand */
 }
 
-.flex-item img {
+.lottie {
   max-width: 100%; /* Max width for images */
   height: auto; /* Auto height for images */
   border-radius: 15px; /* Rundet die Ecken ab */
