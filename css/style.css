@@ -380,6 +380,7 @@ p {
   top: -200vh; /* Start from above the viewport */
   left: 0;
   transition: top 5s ease-in-out; /* Add a transition on the 'top' property */
+  padding: 10px; /* Adjust padding as needed */
 }
 
 #standort-button.open {
@@ -403,6 +404,10 @@ p {
   font-size: 18px; /* Font size for the text */
 }
 
+.dateSelectors input {
+  padding: 10px;
+  border-radius: 30px;
+}
 
 .loop-check-div {
   width: 200px; /* Breite des Dropdowns */
@@ -421,6 +426,7 @@ p {
   flex-direction: column; /* Aligns the items vertically */
   flex-wrap: wrap; /* Wraps the items */
   align-content: space-between; /* Distributes space between the items */
+  padding: 20px 0; /* Adds padding */
 }
 
 #standort {
@@ -450,12 +456,14 @@ p {
   border: none;
   outline: none;
   box-shadow: none;
-  padding: 5px 10px;
+  padding: 10px;
+
 }
 
 .slider-div {
   width: 300px; /* Adjust width as needed */
   display: flex; /* Enable Flexbox */
+  flex-direction: column;
   justify-content: end;
   align-items: center; /* Aligns the items vertically center */
   margin-left: auto; /* Aligns the slider to the right */
@@ -495,6 +503,14 @@ p {
   cursor: pointer;
 }
 
+#slider-number {
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 14pt; /* Font size for the text */
+  color: #F5F5F7; /* Text color */
+  margin: 0 0 10px 0; /* Adjust margin as needed */
+}
+
 @media (max-width: 1024px) {
 
   .loop-box {
@@ -506,9 +522,26 @@ p {
   }
 
   .slider-div {
-    width: 130px;
+    width: 80vw;
+    margin: 20px 0 15px 0;
   }
 
+  .selector {
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  #standort-button {
+    width: 80vw;
+    padding: 10px;
+  }
+
+  .dateSelectors input {
+    width: 36vw;
+    padding: 10px;
+    flex-direction: row;
+  }
 }
 
 input[type="date"] {
@@ -665,6 +698,10 @@ input[type="date"] {
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
 
 #map { height: 500px; }
+
+.dotMap {
+  margin: 50px 0;
+}
 
 /* #dotMap {
   background: url(/img/Zuerich.png) no-repeat center center; 
