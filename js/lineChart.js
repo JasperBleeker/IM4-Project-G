@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // set the end date to the current date
     const today = new Date();
-    const currentDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+    const currentDate = today.toISOString().slice(0, 10);
     document.getElementById('endDate').value = currentDate;
 
     // set the max date to the current date
@@ -123,12 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Map the data for this location to the format required by the chart
         const dataPoints = filteredData.map(lot => ({
             x: new Date(lot.created),
-            y: Math.round((lot.total - lot.free) / lot.total * 100) // Assuming lot.total is never 0 @ Jasper
+            y: Math.round((lot.total - lot.free) / lot.total * 100), // Assuming lot.total is never 0 @ Jasper
+            free: lot.free,
+            total: lot.total
         }));
 
         // Create the dataset for this location
         const dataset = {
-            label: `${location} utilization %`,
+            label: `${location} Auslastung`,
             data: dataPoints,
             borderColor: getRandomColor(),
             fill: false,
@@ -156,6 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
             x: {
                 type: 'time',
@@ -168,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 title: {
                     display: true,
-                    text: 'Date'
+                    text: 'Datum'
                 }
             },
             y: {
@@ -176,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 suggestedMax: 100,
                 title: {
                     display: true,
-                    text: 'Utilization %'
+                    text: 'Auslastung'
                 }
             }
         },
@@ -184,9 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
             tooltip: {
                 callbacks: {
                     label: function (context) {
-                        const label = context.dataset.label;
+                        const dataset = context.dataset;
+                        const index = context.dataIndex;
                         const value = context.raw.y;
-                        return `${label}: ${value}%`;
+                        const free = context.raw.free;
+                        const total = context.raw.total;
+                        return `${dataset.label}: ${value}% (${free} von ${total} frei)`;
                     }
                 }
             }

@@ -4,17 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let dataForSelectedHour; // Declare dataForSelectedHour in a scope accessible to other functions
     let circles = []; // Declare circles in a scope accessible to other functions
     const datePicker = document.getElementById('datePicker');
-    //Placeholder for Global Variables
+    const slider = document.getElementById('myRange');
+    const sliderNumber = document.getElementById('slider-number');
+    
 
     //set the date picker to the current date
     const today = new Date();
-    const currentDate = today.getFullYear()+ '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0') ;
+    const currentDate = today.toISOString().slice(0, 10);
     datePicker.value = currentDate;
+    datePicker.max = currentDate;
+
+    // Function to format hour for display
+    function formatHour(hour) {
+        const h = parseInt(hour, 10);
+        const suffix = h < 12 ? 'AM' : 'PM';
+        const displayHour = ((h + 11) % 12 + 1);
+        return `${displayHour}:00 ${suffix}`;
+    }
+
+    // Initial display update for the slider
+    sliderNumber.textContent = formatHour(slider.value);
+
 
     // Function to process the raw data from the API
     function processData(data) {
         return data.map(item => {
             const { created, location, free, total, name } = item;
+            if (!location || !created) return null;
+            const [latitude, longitude] = location.split(',');
+
             const [date, time] = created.split(' ');
             //process time to get only the hour
             const [hour, minute, second] = time.split(':');
@@ -24,10 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 newTime = newTime.substring(1);
             }
             
-            if (location) {
-                const [latitude, longitude] = location.split(',');
-    
-                return {
+            return {
                     date,
                     name,
                     newTime,
@@ -38,9 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     free,
                     total
                 };
-            } else {
-                return null;  // Or handle no-location scenario appropriately
-            }
+            
         }).filter(item => item !== null); // Filter out any null entries if location is missing
         
     }
@@ -61,11 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Calculate the percentage of occupied spaces
                 const occupiedPercentage = ((total - free) / total) * 100;
                 
-                // Define the radius based on occupied percentage
-                const baseRadius = 50; // Base radius for 0% occupied
-                const maxRadius = 300; // Max radius for 100% occupied
-                const radius = baseRadius + (occupiedPercentage / 100) * (maxRadius - baseRadius);
-                
+                const radius = calculateCircleRadius(occupiedPercentage);
+
                 const circle = L.circle([latitude, longitude], {
                     color: '#2DCB74',
                     fillColor: '#2DCB74',
@@ -81,6 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error updating map:', error);
         }
     }
+
+    function calculateCircleRadius(occupiedPercentage) {
+        const baseRadius = 50;
+        const maxRadius = 300;
+        return baseRadius + (occupiedPercentage / 100) * (maxRadius - baseRadius);
+    }
+    
 
     // Leafelt map
     var map = L.map('map').setView([47.386, 8.542], 13);
@@ -99,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             datePicker.addEventListener('change', event => {
                 const selectedDate = String(datePicker.value);
                 const selectedHour = document.getElementById('myRange').value; //Get current value of the range slider
+                sliderNumber.textContent = formatHour(selectedHour); // Update the slider number on date change
+
                 updateMap(selectedDate, selectedHour);
             });
             
@@ -107,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.addEventListener('input', () => {
                 const selectedDate = String(datePicker.value); // Get current value of date picker
                 const selectedHour = slider.value;
+                sliderNumber.textContent = formatHour(selectedHour); // Update the slider number on date change
+
                 updateMap(selectedDate, selectedHour);
             });
 
