@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             parkinglotElement.innerHTML = `
                 <div class="parkinglot-info">
-                <p class:"anz-frei"> ${parkinglot.free}</p>
+                <h2 class:"anz-frei"> ${parkinglot.free}</h2>
                 <p class:"freie-text">Freie Parkplätze</p>
                 </div>
                 <h3>${parkinglot.name}</h3>
