@@ -683,9 +683,17 @@ input[type="date"] {
   }
 }
 
+@media (max-width: 1024px) {
+
+  .rotating-text {
+    font-size: 10pt; /* Adjust font size as needed */
+  }
+
+}
+
 /* palette: https://flatuicolors.com/palette/defo */
 .alizarin {
-  color: #e74c3c;
+  color: #F5F5F7;
 }
 
 .wisteria {

@@ -34,56 +34,6 @@ $('#standort-button').click(function() {
 
 //Slider JS
 
-$('#myRange')
-  .slider({
-    min: 0,
-    max: 900,
-    step: 15,
-    value: 0,
-    tooltip: 'hide',
-    ticks: [0, 180, 360, 540, 720, 900, 1080, 1260, 1440],
-    ticks_labels: [
-      '12:00 AM', 
-      '03:00 AM', 
-      '06:00 AM', 
-      '09:00 AM', 
-      '12:00 PM', 
-      '03:00 PM', 
-      '06:00 PM', 
-      '09:00 PM', 
-      '12:00 AM'
-    ],
-    ticks_snap_bounds: 15
-  })
-  .on('slide', (e) => {
-    let hrs = Math.floor(e.value / 60)
-    let min = e.value - (hrs * 60)
-
-    if (hrs.length === 1) hrs = '0' + hrs
-    if (min.length === 1) min = '0' + min
-    if (min === 0) min = '00'
-    if (hrs >= 12) {
-      if (hrs === 12) min = min + ' PM'
-      else {
-        hrs = hrs - 12
-        min = min + ' PM'
-      }
-    } 
-    else {
-      min = min + ' AM'
-    }
-    if (hrs === 0) {
-      hrs = 12
-    }
-
-    $('#slider-number').html(hrs + ':' + min)
-  })
-
-$($('.slider-track-low'))
-  .clone()
-  .addClass('slider-track-total')
-  .css({ width: '62.5%' })
-  .appendTo('.slider-track')
 
 // Text Changer
 let words = document.querySelectorAll(".word");
