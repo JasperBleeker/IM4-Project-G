@@ -438,6 +438,11 @@ p {
   width: 100%; /* Adjust width as needed */
 }
 
+@media screen and (max-width: 1024px){
+  
+  
+}
+
 .datepicker {
   background-color: #2DCB74; /* Hintergrundfarbe */
   width: auto; /* Adjust width as needed */
@@ -505,9 +510,16 @@ p {
     height:750px;
   }
 
-  .slider-div {
-    width: 130px;
+  .selector {
+    flex-direction: column; /* Aligns the items vertically */
+    align-items: center; /* Aligns the items vertically center */
   }
+
+  .slider-div {
+    margin: 20px 0px 10px 0px; 
+  }
+
+
 
 }
 
