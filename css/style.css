@@ -5,6 +5,7 @@ body {
   background-color: #0D0D0D;
   font-family: Arial, Helvetica, sans-serif;
   color: #F5F5F7; /* Optional: Changes text color to white for better visibility */
+  margin: 0;
 }
 
 .border-box {
@@ -612,7 +613,6 @@ input[type="date"] {
   h1 {
     font-size: 30pt; /* Adjust font size as needed */
   }
-
 }
 
 /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
@@ -628,24 +628,20 @@ input[type="date"] {
   font-size: 13pt; /* Font size for the text */
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.footer p {
-  margin: 20px 0;
-}
-
-.footer a {
-  margin: 20px 0; /* Adjust as needed */
-}
-
-.instagram {
+.social {
   width: 40px; /* Width of the SVG */
   height: 40px; /* Height of the SVG */
   fill: #2DCB74; /* Green fill color */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
+  margin: 10px 30px;
+}
+
+.social-div {
+  display: flex;
+  justify-content: center;
 }
 
 .rotating-text {
@@ -685,11 +681,14 @@ input[type="date"] {
 
 @media (max-width: 1024px) {
 
-  .rotating-text {
-    font-size: 10pt; /* Adjust font size as needed */
+  .word {
+    font-size: 10pt;
+    text-align: center;
   }
 
-}
+  .word-title {
+    font-size: 10pt;
+  }
 
 /* palette: https://flatuicolors.com/palette/defo */
 .alizarin {
@@ -711,7 +710,7 @@ input[type="date"] {
 .sun-flower {
   color: #f1c40f;
 }
-
+}
 
 /* CHART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART HART CHART CHART CHART */
 
@@ -721,21 +720,6 @@ input[type="date"] {
   margin: 50px 0;
 }
 
-/* #dotMap {
-  background: url(/img/Zuerich.png) no-repeat center center; 
-  background-size: 80%, 90%;  
-  margin: 40px 0; 
-  color: #2DCB74; 
-  margin-top: 100px; 
-  padding: 70px 0; 
-  font-family: "Roboto", sans-serif; 
-  font-weight: 700; 
-  font-size: 13pt; 
-  text-align: center; 
-} */
-
-/* .dotMap {
-  aspect-ratio: 1/1; 
-} */
-
-
+#lineChart {
+  width: 80vw;
+}
