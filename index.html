@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Datensammlung</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#308D46">
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <nav class="navbar">
+        <div id="navigation">
+            <ul class="menu">
+                <li class="list-items"><a href="app.html">FREIE PARKPLÄTZE&nbsp;&nbsp;🅿️</a></li>
+            </ul>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo_zurigo_parking.png" alt="Zurigo Parking Logo">
+            </a>
+        </div>
+        <div id="navigation">
+            <ul class="menu">
+                <li class="list-items"><a href="#parkplatzmonitor">PARKPLATZMONITOR&nbsp;&nbsp;📉</a></li>
+            </ul>
+        </div>
+        <button class="hamburger-menu"
+            onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+            aria-label="Main Menu">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <path class="line line1"
+                    d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                <path class="line line2" d="M 20,50 H 80" />
+                <path class="line line3"
+                    d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            </svg>
+        </button>
+    </nav>
+
+    <nav class="mobile-nav">
+        <ul>
+            <li class="menu"><a href="app.html">FREIE PARKPLÄTZE&nbsp;&nbsp;🅿️</a></li>
+            <li class="menu"><a href="#parkplatzmonitor">PARKPLATZMONITOR&nbsp;&nbsp;📉</a></li>
+        </ul>
+
+        <div class="footer" id="mobile-footer">
+
+
+
+            <div class="social-div" id="mobile-social-div">
+                <a href="/instagram.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="social" id="mobile-social" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                    </svg>
+                </a>
+
+                <a href="/dvd.html">
+                    <svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+                        version="1.1" viewBox="0 0 512 512" width="16" height="16" class="social" id="mobile-social"
+                        xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path
+                            d="M501.303,132.765c-5.887,-22.03 -23.235,-39.377 -45.265,-45.265c-39.932,-10.7 -200.038,-10.7 -200.038,-10.7c0,0 -160.107,0 -200.039,10.7c-22.026,5.888 -39.377,23.235 -45.264,45.265c-10.697,39.928 -10.697,123.238 -10.697,123.238c0,0 0,83.308 10.697,123.232c5.887,22.03 23.238,39.382 45.264,45.269c39.932,10.696 200.039,10.696 200.039,10.696c0,0 160.106,0 200.038,-10.696c22.03,-5.887 39.378,-23.239 45.265,-45.269c10.696,-39.924 10.696,-123.232 10.696,-123.232c0,0 0,-83.31 -10.696,-123.238Zm-296.506,200.039l0,-153.603l133.019,76.802l-133.019,76.801Z"
+                            style="fill-rule:nonzero;" />
+                    </svg>
+                </a>
+
+                <a target="_blank" href="https://github.com/JasperBleeker/IM4-Project-G">
+                    <?xml version="1.0" ?><svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32"
+                        class="social" id="mobile-social" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="OUTLINE_copy_2">
+                            <g>
+                                <path
+                                    d="M16,0C7.163,0,0,7.163,0,16c0,8.837,7.164,16,16,16c8.837,0,16-7.163,16-16C32,7.163,24.837,0,16,0z M18.067,18.96    c0.333,0.289,0.592,1.308,0.592,1.776v4.144h-2.365h-2.368c0,0,0.007-1.405,0-2.368c-3.24,0.697-4.144-1.776-4.144-1.776    C9.19,19.552,8.598,18.96,8.598,18.96c-1.184-0.703,0-0.592,0-0.592c1.184,0,1.776,1.184,1.776,1.184    c1.039,1.764,2.888,1.48,3.552,1.184c0-0.592,0.259-1.487,0.592-1.776c-2.586-0.291-4.738-1.776-4.738-4.736    c0-2.96,0.594-3.552,1.186-4.144c-0.12-0.292-0.615-1.37,0.018-2.96c0,0,1.163,0,2.347,1.776c0.587-0.587,2.368-0.592,2.961-0.592    c0.591,0,2.373,0.005,2.959,0.592c1.184-1.776,2.35-1.776,2.35-1.776c0.633,1.59,0.138,2.668,0.018,2.96    c0.592,0.592,1.184,1.184,1.184,4.144C22.804,17.184,20.654,18.669,18.067,18.96z" />
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="rotating-text">
+
+                <p class="word-title">EIN PROJEKT VON</p>
+
+                <p>
+                    <span class="word alizarin">DREI&nbsp;MOTIVIERTEN&nbsp;MMPlern.</span>
+                    <span class="word wisteria">JASPER.</span>
+                    <span class="word peter-river">JOEL.</span>
+                    <span class="word emerald">YURI.</span>
+                    <span class="word sun-flower">CO-PILOT.</span>
+                </p>
+            </div>
+
+        </div>
+    </nav>
+    <div class="border-box">
+        <section id="parkplatzmonitor">
+            <div class="title">
+                <h1 id="white">PARKPLATZ&shy;MONITOR STADT <span id="green">ZÜRICH.</span></h1>
+            </div>
+            <h3 id="parkraum">Parkraum Zürich dynamisch und interaktiv erforscht.</h3>
+            <div class="intro" id="reverse">
+                <div class="flex-item">
+                    <p>
+                        In der pulsierenden Stadt <span class="highlight">Zürich</span>&nbsp;ist die Suche nach einem
+                        Parkplatz oft mehr als nur ein
+                        praktisches Bedürfnis – es ist ein tägliches Puzzle, das Geschick und Timing erfordert. Mit
+                        unserem neuen Projekt "Parkplatzmonitor Stadt Zürich" bieten wir eine umfassende und <span
+                            class="highlight">interaktive
+                        </span>Visualisierung der Parkplatzsituation in der gesamten Stadt.<br><br>Durch die <span
+                            class="highlight">Datenvisualisierung
+                            und Analysen</span> – von der Auslastung in den einzelnen Bezirken bis hin zu den
+                        Hauptnutzungszeiten –
+                        ermöglichen wir es Einwohnern und Besuchern, die Parkplatzdynamik besser zu verstehen und
+                        effizient zu navigieren.
+                    </p>
+                </div>
+                <div class="flex-item">
+                    <img src="/img/parking-zuerich-urania-08.jpg" alt="Foto von aussen vom Parkhaus Urania">
+                </div>
+            </div>
+        </section>
+
+
+        <main>
+
+            <!-- GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 GRAPH 1 ------------------------------------------------>
+
+            <section id="section_dotMap">
+
+                <h2>AUSLASTUNG UMS <span id="green">ZENTRUM.</span></h2>
+
+                <div class="selector">
+
+                    <div class="datepicker">
+                        <p id="button-text">TAG AUSWÄHLEN</p>
+                        <input type="date" id="datePicker" name="datemin" min="2024-05-01">
+                    </div>
+
+                    <div class="slider-div">
+                        <h3 id="slider-number">12:00 AM</h3>
+                        <input type="range" min="0" max="23" value="0" class="slider" id="myRange">
+                    </div>
+
+                </div>
+
+                <!-- Jasper's Baustelle. DO NOT TOUCH!-->
+                <div class="dotMap">
+                    <div id="map"></div>
+                </div>
+                <!-- Jasper's Baustelle. Ende-->
+
+                <div class="text_analyse">
+                    <h2>TITEL 1</h2>
+                    <p><span id="green">Lorem</span> ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+
+            </section>
+
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span class="marquee-title">
+                        In der Stadt Zürich gibt es insgesamt rund 70 000 öffentlich zugängliche Parkplätze für Autos.
+                        Davon
+                        befinden sich etwa 30 Prozent aller Parkplätze in Parkhäusern. In der Stadt Zürich gibt es
+                        insgesamt rund 70 000 öffentlich zugängliche Parkplätze für Autos. Davon
+                        befinden sich etwa 30 Prozent aller Parkplätze in Parkhäusern. In der Stadt Zürich gibt es
+                        insgesamt rund 70 000 öffentlich zugängliche Parkplätze für Autos. Davon
+                        befinden sich etwa 30 Prozent aller Parkplätze in Parkhäusern.
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 GRAPH 2 ------------------------------------------------>
+
+            <section id="section_lineChart">
+
+                <h2>AUSLASTUNG <span id="green">ZÜRICH.</span></h2>
+
+                <div class="selector">
+                    <div class="standort">
+                        <button id="standort-button">
+                            <span id="button-text">STANDORT AUSWÄHLEN</span>
+                            <svg class="svg-dropdown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="#0D0D0D" />
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- PLATZHALTER HIER KOMMT KALENDER VLT. V-KALENDER!!! -->
+                    <div class="dateSelectors">
+                        <div class="date-div">
+                            <h3 id="date-text">von</h3>
+                            <input type="date" id="startDate" name="startDate" min="2024-04-30" value="2024-04-30">
+                        </div>
+                        <div class="date-div">
+                            <h3 id="date-text">bis</h3>
+                            <input type="date" id="endDate" name="endDate" min="2024-04-30">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="dropdown-div" id="dropdown">
+                    <p id="dropdown-title">PARKPLÄTZE & PARKHÄUSER</p>
+                    <div class="loop-box" id="loop-box">
+                        <!-- Hier Wird Dynamisch Content von der API eingefügt -->
+                    </div>
+                </div>
+
+                <!-- Jasper's Baustelle. DO NOT TOUCH!-->
+                <div class="lineChart">
+                    <canvas id="lineChart" width="400" height="400"></canvas>
+                </div>
+                <!-- Jasper's Baustelle. Ende-->
+
+                <div class="text_analyse">
+                    <h2>TITEL 2</h2>
+                    <p><span id="green">Lorem</span> ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="border-box">
+            <div class="footer">
+
+
+
+                <div class="social-div">
+                    <a href="/instagram.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="social" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </a>
+
+                    <a href="/dvd.html">
+                        <svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+                            version="1.1" viewBox="0 0 512 512" width="16" height="16" class="social"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path
+                                d="M501.303,132.765c-5.887,-22.03 -23.235,-39.377 -45.265,-45.265c-39.932,-10.7 -200.038,-10.7 -200.038,-10.7c0,0 -160.107,0 -200.039,10.7c-22.026,5.888 -39.377,23.235 -45.264,45.265c-10.697,39.928 -10.697,123.238 -10.697,123.238c0,0 0,83.308 10.697,123.232c5.887,22.03 23.238,39.382 45.264,45.269c39.932,10.696 200.039,10.696 200.039,10.696c0,0 160.106,0 200.038,-10.696c22.03,-5.887 39.378,-23.239 45.265,-45.269c10.696,-39.924 10.696,-123.232 10.696,-123.232c0,0 0,-83.31 -10.696,-123.238Zm-296.506,200.039l0,-153.603l133.019,76.802l-133.019,76.801Z"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                    </a>
+
+                    <a target="_blank" href="https://github.com/JasperBleeker/IM4-Project-G">
+                        <?xml version="1.0" ?><svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32"
+                            class="social" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="OUTLINE_copy_2">
+                                <g>
+                                    <path
+                                        d="M16,0C7.163,0,0,7.163,0,16c0,8.837,7.164,16,16,16c8.837,0,16-7.163,16-16C32,7.163,24.837,0,16,0z M18.067,18.96    c0.333,0.289,0.592,1.308,0.592,1.776v4.144h-2.365h-2.368c0,0,0.007-1.405,0-2.368c-3.24,0.697-4.144-1.776-4.144-1.776    C9.19,19.552,8.598,18.96,8.598,18.96c-1.184-0.703,0-0.592,0-0.592c1.184,0,1.776,1.184,1.776,1.184    c1.039,1.764,2.888,1.48,3.552,1.184c0-0.592,0.259-1.487,0.592-1.776c-2.586-0.291-4.738-1.776-4.738-4.736    c0-2.96,0.594-3.552,1.186-4.144c-0.12-0.292-0.615-1.37,0.018-2.96c0,0,1.163,0,2.347,1.776c0.587-0.587,2.368-0.592,2.961-0.592    c0.591,0,2.373,0.005,2.959,0.592c1.184-1.776,2.35-1.776,2.35-1.776c0.633,1.59,0.138,2.668,0.018,2.96    c0.592,0.592,1.184,1.184,1.184,4.144C22.804,17.184,20.654,18.669,18.067,18.96z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="rotating-text">
+
+                    <p class="word-title">EIN PROJEKT VON</p>
+
+                    <p>
+                        <span class="word alizarin">DREI&nbsp;MOTIVIERTEN&nbsp;MMPlern.</span>
+                        <span class="word wisteria">JASPER.</span>
+                        <span class="word peter-river">JOEL.</span>
+                        <span class="word emerald">YURI.</span>
+                        <span class="word sun-flower">CO-PILOT.</span>
+                    </p>
+                </div>
+
+                <p>©PROJECT-G</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="/js/script.js" async defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="/js/map2.js"></script>
+    <script src="/js/lineChart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>
