@@ -720,6 +720,29 @@ input[type="date"] {
   margin: 50px 0;
 }
 
-#lineChart {
-  width: 80vw;
+.lineChart {
+  width: 100%;
+  padding: 0;
+  margin: 20px 0;
+  background-color: #F5F5F7;
+  border-radius: 10px;
 }
+
+#lineChart {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1024px){
+  
+  #lineChart {
+    aspect-ratio: auto 3 / 1;
+  }
+
+  .lineChart {
+    min-height: 600px;
+  }
+  
+} 
