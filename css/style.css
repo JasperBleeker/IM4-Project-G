@@ -273,6 +273,10 @@ p {
   margin-top: 50px; /* Oberer äußerer Abstand */
 }
 
+#parkraum br {
+  display: none; /* Hides the line break on smaller screens */
+}
+
 .flex-item {
   flex: 0 0 50%; /* Flexbox item width */
   padding-right: 30px; /* Rechter innerer Abstand */
@@ -291,6 +295,15 @@ p {
 
   #reverse {
     flex-direction: column-reverse;
+  }
+
+  #parkraum {
+    margin-top: 50px; /* Oberer äußerer Abstand */
+    font-size: 16pt;
+  }
+
+  #parkraum br {
+    display:block; /* Hides the line break on smaller screens */
   }
 
   h1 {
@@ -327,11 +340,11 @@ p {
   }
   
   #parkplatzmonitor {
-    margin-top: 80px; /* Oberer äußerer Abstand */
+    margin-top: 30px; /* Oberer äußerer Abstand */
   }
 
   #mobile-lottie {
-    margin: 100px 0; /* Oberer und unterer äußerer Abstand */
+    margin: 20px 0 50px 0; /* Oberer und unterer äußerer Abstand */
   }
 }
 
@@ -496,6 +509,10 @@ p {
   background-color: #F5F5F7; /* Light grey background */
   border-radius: 50%; /* Rounds the corners */
   transform: scale(1); /* Scales the SVG */
+}
+
+.locationCheckbox {
+  accent-color: #2DCB74;
 }
 
 /* DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER DATEPICKER */
