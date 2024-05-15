@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let checkedLocations = [];
     let allData = [];
 
+    // Definition suchfunktion
+    const searchbar = document.getElementById('search');
+
     // Eventlistener für Start- und Enddatum
     document.getElementById('startDate').addEventListener('change', updateChartBasedOnDateAndLocation);
     document.getElementById('endDate').addEventListener('change', updateChartBasedOnDateAndLocation);
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Erstellen der Checkboxen
     function createCheckbox(data) {
         const locationContainer = document.getElementById('loop-box');
+        locationContainer.innerHTML = ''; // Clear the container before adding new checkboxes
         const uniqueLocations = new Set();
         data.forEach(location => {
             if (!uniqueLocations.has(location.name)) {
@@ -199,6 +203,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+
+    // Function to filter parking lots based on user input in the search bar
+    function filterParkingLots() {
+        const searchText = searchbar.value.toLowerCase();
+        const filteredData = allData.filter(parkinglot =>
+            parkinglot.name.toLowerCase().includes(searchText)
+        );
+        createCheckbox(filteredData);
+    }
+
+    searchbar.addEventListener('input', filterParkingLots);
 
 
 

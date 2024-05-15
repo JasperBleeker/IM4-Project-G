@@ -266,6 +266,11 @@ body {
   .parkinglot {
     width: 100%;
   }
+
+  .parkinglot p, h2, h3 {
+    margin: 0;
+    padding: 2px;
+  }
   
 }
 
