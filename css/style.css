@@ -906,7 +906,7 @@ input[type="date"] {
   }
 
   .lineChart {
-    min-height: 600px;
+    min-height: 450px;
   }
   
 } 
