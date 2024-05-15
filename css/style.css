@@ -331,6 +331,13 @@ p {
     margin-top: 80px; /* Oberer äußerer Abstand */
   }
 }
+
+@media (max-width: 1250px) {
+
+  h1 {
+    font-size: 40pt; /* Adjust font size as needed */
+  }
+}
 #gradient-border {
   --border-width: 3px;
 
