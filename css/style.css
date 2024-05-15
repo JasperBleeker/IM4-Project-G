@@ -299,6 +299,7 @@ p {
 
   #parkraum {
     margin-top: 50px; /* Oberer äußerer Abstand */
+    font-size: 16pt;
   }
 
   #parkraum br {
@@ -339,7 +340,7 @@ p {
   }
   
   #parkplatzmonitor {
-    margin-top: 80px; /* Oberer äußerer Abstand */
+    margin-top: 30px; /* Oberer äußerer Abstand */
   }
 
   #mobile-lottie {
