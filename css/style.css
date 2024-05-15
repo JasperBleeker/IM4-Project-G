@@ -736,7 +736,7 @@ input[type="date"] {
 }
 
 .marquee-title {
-  font-size: 50pt; /* Font size for the title */
+  font-size: 35pt; /* Font size for the title */
   font-family: "Roboto", sans-serif; /* Font family for the title */
   font-weight: 700; /* Bold font weight */
   margin: 0; /* Removes default margin */
@@ -893,7 +893,7 @@ input[type="date"] {
 }
 
 #lineChart {
-  width: 100% !important;
+  width: 70% !important;
   height: auto !important;
   aspect-ratio: 16 / 9;
   padding: 10px;
