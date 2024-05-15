@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     // Toggle mobile navigation
     const menu_btn = document.querySelector('.hamburger-menu');
     const menu = document.querySelector('.mobile-nav');
@@ -41,43 +40,75 @@ document.addEventListener('DOMContentLoaded', function () {
     rotateText();
     setInterval(rotateText, 4000);
 
-
-    // Parking lot data API
-
     let apiUrl = 'https://api.parkendd.de/Zuerich';
     const searchbar = document.getElementById('search');
     let allData = [];
 
-    // Fetch the API data
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            console.log("API Data:", data); // Log the data to see its structure
+    
 
-            // Check if the 'lots' key is available and is an array
-            if (data.lots && Array.isArray(data.lots)) {
-                allData = processData(data.lots); // Process the data and store it in a variable
-                displayParkingLots(allData);
-            } else {
-                console.error('Unexpected data structure:', data);
-                return;
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
+    // Check if geolocation is available and get the user's location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("API Data:", data); // Log the data to see its structure
+
+                    if (data.lots && Array.isArray(data.lots)) {
+                        allData = processData(data.lots, userLatitude, userLongitude); // Process and sort the data based on distance
+                        displayParkingLots(allData);
+                    } else {
+                        console.error('Unexpected data structure:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }, () => {
+            alert("Unable to retrieve your location. Displaying unsorted parking lots.");
+            // Fall back to displaying unsorted parking lots if location cannot be retrieved
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.lots && Array.isArray(data.lots)) {
+                        allData = processData(data.lots); // Process without sorting by distance
+                        displayParkingLots(allData);
+                    } else {
+                        console.error('Unexpected data structure:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching parking lots:', error);
+                });
         });
-
-    function processData(data) {
-        return data.map(lot => ({
-            name: lot.name,
-            free: lot.free,
-            total: lot.total,
-            latitude: lot.coords ? lot.coords.lat : null,
-            longitude: lot.coords ? lot.coords.lng : null
-        }));
+    } else {
+        alert("Geolocation is not supported by this browser.");
     }
 
-    // Function to display parking lots information
+    function processData(data, userLatitude, userLongitude) {
+        return data.map(lot => {
+            const latitude = lot.coords ? lot.coords.lat : null;
+            const longitude = lot.coords ? lot.coords.lng : null;
+            const distance = (latitude !== null && longitude !== null && userLatitude !== undefined && userLongitude !== undefined)
+                ? getDistanceFromLatLonInKm(userLatitude, userLongitude, latitude, longitude)
+                : null;
+
+            return {
+                name: lot.name,
+                free: lot.free,
+                total: lot.total,
+                latitude,
+                longitude,
+                distance
+            };
+        })
+            .filter(lot => lot.distance !== null) // Keep only lots with a calculated distance
+            .sort((a, b) => a.distance - b.distance); // Sort by distance
+    }
+
     function displayParkingLots(data) {
         const parkinglotContainer = document.getElementById('parkinglot-box');
         parkinglotContainer.innerHTML = ''; // Clear previous data
@@ -86,26 +117,44 @@ document.addEventListener('DOMContentLoaded', function () {
             parkinglotElement.className = 'parkinglot';
 
             const parkingLotNameHTML = parkinglot.latitude !== null && parkinglot.longitude !== null
-                ? `<a href="https://www.google.com/maps/search/?api=1&query=${parkinglot.latitude},${parkinglot.longitude}" target="_blank"><div class="route-link"><h3>Route</h3><svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.7918 17.527C25.0382 16.7827 24.2847 16.0255 23.5181 15.2812C23.4142 15.1785 23.3102 15.063 23.1933 14.9603C23.1338 14.9009 23.063 14.8537 22.985 14.8215C22.9069 14.7893 22.8232 14.7727 22.7386 14.7727C22.654 14.7727 22.5702 14.7893 22.4921 14.8215C22.4141 14.8537 22.3433 14.9009 22.2838 14.9603C22.2229 15.02 22.1746 15.091 22.1416 15.1691C22.1086 15.2473 22.0917 15.3312 22.0917 15.4159C22.0917 15.5006 22.1086 15.5845 22.1416 15.6627C22.1746 15.7409 22.2229 15.8118 22.2838 15.8715L23.765 17.3345H9.53815C8.77317 17.3345 8.03953 17.0343 7.49861 16.5C6.95769 15.9658 6.65381 15.2411 6.65381 14.4855C6.65381 13.7299 6.95769 13.0052 7.49861 12.471C8.03953 11.9367 8.77317 11.6365 9.53815 11.6365H13.4359C13.9844 11.6365 14.5276 11.5298 15.0344 11.3224C15.5412 11.1151 16.0017 10.8112 16.3896 10.428C16.7774 10.0449 17.0851 9.59008 17.295 9.0895C17.505 8.58892 17.613 8.05241 17.613 7.51058C17.613 6.96876 17.505 6.43224 17.295 5.93166C17.0851 5.43108 16.7774 4.97625 16.3896 4.59312C16.0017 4.20999 15.5412 3.90608 15.0344 3.69873C14.5276 3.49139 13.9844 3.38467 13.4359 3.38467H6.58884C6.42785 2.60566 5.97976 1.91344 5.33143 1.44222C4.6831 0.970993 3.88073 0.754335 3.07987 0.834247C2.27901 0.914159 1.53671 1.28495 0.996899 1.87473C0.457083 2.46451 0.158203 3.23126 0.158203 4.02633C0.158203 4.82141 0.457083 5.58816 0.996899 6.17794C1.53671 6.76772 2.27901 7.13851 3.07987 7.21842C3.88073 7.29833 4.6831 7.08167 5.33143 6.61045C5.97976 6.13923 6.42785 5.44701 6.58884 4.668H13.4359C14.1992 4.668 14.9311 4.96749 15.4708 5.50057C16.0105 6.03366 16.3138 6.75668 16.3138 7.51058C16.3138 8.26448 16.0105 8.98751 15.4708 9.52059C14.9311 10.0537 14.1992 10.3532 13.4359 10.3532H9.53815C8.98875 10.3532 8.44473 10.4601 7.93715 10.6677C7.42958 10.8754 6.96838 11.1798 6.5799 11.5635C6.19142 11.9472 5.88325 12.4028 5.67301 12.9041C5.46276 13.4055 5.35455 13.9428 5.35455 14.4855C5.35455 15.0282 5.46276 15.5655 5.67301 16.0669C5.88325 16.5682 6.19142 17.0238 6.5799 17.4075C6.96838 17.7912 7.42958 18.0956 7.93715 18.3033C8.44473 18.5109 8.98875 18.6178 9.53815 18.6178H23.778L22.6086 19.7728C22.4917 19.8755 22.3878 19.991 22.2838 20.0937C22.2229 20.1533 22.1746 20.2243 22.1416 20.3025C22.1086 20.3807 22.0917 20.4645 22.0917 20.5492C22.0917 20.634 22.1086 20.7178 22.1416 20.796C22.1746 20.8742 22.2229 20.9452 22.2838 21.0048C22.4069 21.1192 22.5696 21.1828 22.7386 21.1828C22.9075 21.1828 23.0702 21.1192 23.1933 21.0048L25.467 18.759L25.7918 18.4382C25.8527 18.3785 25.901 18.3075 25.934 18.2294C25.967 18.1512 25.984 18.0673 25.984 17.9826C25.984 17.8979 25.967 17.814 25.934 17.7358C25.901 17.6576 25.8527 17.5867 25.7918 17.527ZM3.40567 5.95133C3.02022 5.95133 2.64342 5.83843 2.32293 5.62691C2.00244 5.41539 1.75265 5.11475 1.60514 4.763C1.45764 4.41125 1.41904 4.0242 1.49424 3.65078C1.56944 3.27737 1.75505 2.93437 2.02761 2.66515C2.30016 2.39594 2.64742 2.2126 3.02546 2.13832C3.40351 2.06405 3.79536 2.10217 4.15148 2.24787C4.50759 2.39356 4.81196 2.6403 5.02611 2.95686C5.24025 3.27343 5.35455 3.6456 5.35455 4.02633C5.35455 4.53688 5.14922 5.02651 4.78374 5.38751C4.41825 5.74852 3.92255 5.95133 3.40567 5.95133Z" fill="#2DCB74"/>
-                </svg></div></a>`
-                
-                : `<h3>Nicht<br>verfügbar</h3>`;
+                ? `<a href="https://www.google.com/maps/search/?api=1&query=${parkinglot.latitude},${parkinglot.longitude}" target="_blank"><div class="route-link"><h3>Route</h3><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.976 12.6622C18.4443 12.1305 17.9127 11.5897 17.3718 11.058C17.2985 10.9847 17.2252 10.9022 17.1427 10.8288C17.1007 10.7864 17.0508 10.7527 16.9957 10.7297C16.9406 10.7067 16.8815 10.6948 16.8218 10.6948C16.7621 10.6948 16.703 10.7067 16.648 10.7297C16.5929 10.7527 16.5429 10.7864 16.501 10.8288C16.458 10.8715 16.4239 10.9221 16.4007 10.978C16.3774 11.0338 16.3654 11.0938 16.3654 11.1543C16.3654 11.2148 16.3774 11.2747 16.4007 11.3305C16.4239 11.3864 16.458 11.4371 16.501 11.4797L17.546 12.5247H7.50849C6.96877 12.5247 6.45116 12.3103 6.06953 11.9286C5.68789 11.547 5.47349 11.0294 5.47349 10.4897C5.47349 9.94996 5.68789 9.43235 6.06953 9.05072C6.45116 8.66908 6.96877 8.45468 7.50849 8.45468H10.2585C10.6455 8.45468 11.0287 8.37845 11.3863 8.23034C11.7438 8.08224 12.0687 7.86516 12.3424 7.5915C12.6161 7.31783 12.8331 6.99295 12.9812 6.63539C13.1293 6.27784 13.2056 5.89461 13.2056 5.50759C13.2056 5.12058 13.1293 4.73735 12.9812 4.37979C12.8331 4.02224 12.6161 3.69735 12.3424 3.42369C12.0687 3.15003 11.7438 2.93295 11.3863 2.78484C11.0287 2.63674 10.6455 2.56051 10.2585 2.56051H5.42766C5.31407 2.00408 4.99793 1.50963 4.54051 1.17305C4.08309 0.836458 3.51699 0.681703 2.95196 0.738783C2.38692 0.795863 1.86321 1.06071 1.48235 1.48198C1.10149 1.90325 0.890625 2.45093 0.890625 3.01884C0.890625 3.58675 1.10149 4.13444 1.48235 4.55571C1.86321 4.97698 2.38692 5.24183 2.95196 5.29891C3.51699 5.35599 4.08309 5.20123 4.54051 4.86464C4.99793 4.52805 5.31407 4.03361 5.42766 3.47718H10.2585C10.797 3.47718 11.3134 3.6911 11.6942 4.07187C12.075 4.45265 12.2889 4.96909 12.2889 5.50759C12.2889 6.04609 12.075 6.56254 11.6942 6.94332C11.3134 7.32409 10.797 7.53801 10.2585 7.53801H7.50849C7.12087 7.53801 6.73705 7.61436 6.37894 7.76269C6.02082 7.91103 5.69543 8.12845 5.42135 8.40253C5.14726 8.67662 4.92984 9.00201 4.78151 9.36012C4.63317 9.71824 4.55682 10.1021 4.55682 10.4897C4.55682 10.8773 4.63317 11.2611 4.78151 11.6192C4.92984 11.9773 5.14726 12.3027 5.42135 12.5768C5.69543 12.8509 6.02082 13.0683 6.37894 13.2167C6.73705 13.365 7.12087 13.4413 7.50849 13.4413H17.5552L16.7302 14.2663C16.6477 14.3397 16.5743 14.4222 16.501 14.4955C16.458 14.5381 16.4239 14.5888 16.4007 14.6447C16.3774 14.7005 16.3654 14.7604 16.3654 14.8209C16.3654 14.8814 16.3774 14.9413 16.4007 14.9972C16.4239 15.053 16.458 15.1037 16.501 15.1463C16.5879 15.228 16.7026 15.2735 16.8218 15.2735C16.941 15.2735 17.0558 15.228 17.1427 15.1463L18.7468 13.5422L18.976 13.313C19.0189 13.2704 19.053 13.2197 19.0763 13.1639C19.0996 13.108 19.1116 13.0481 19.1116 12.9876C19.1116 12.9271 19.0996 12.8672 19.0763 12.8113C19.053 12.7555 19.0189 12.7048 18.976 12.6622ZM3.18182 4.39384C2.90987 4.39384 2.64403 4.3132 2.41791 4.16211C2.1918 4.01103 2.01556 3.79628 1.91149 3.54503C1.80742 3.29379 1.78019 3.01732 1.83324 2.7506C1.8863 2.48387 2.01725 2.23887 2.20955 2.04657C2.40185 1.85428 2.64685 1.72332 2.91357 1.67026C3.1803 1.61721 3.45677 1.64444 3.70801 1.74851C3.95926 1.85258 4.17401 2.02882 4.32509 2.25494C4.47618 2.48105 4.55682 2.7469 4.55682 3.01884C4.55682 3.38352 4.41196 3.73325 4.1541 3.99112C3.89623 4.24898 3.5465 4.39384 3.18182 4.39384Z" fill="#2DCB74"/>
+                </svg>
+                </div></a>`
+                : `<h3>${parkinglot.name} (Location not available)</h3>`;
 
             parkinglotElement.innerHTML = `
                 <div class="parkinglot-info">
-                <h2 class:"anz-frei"> ${parkinglot.free}</h2>
-                <p class:"freie-text">Freie Parkplätze</p>
+                    <h2>${parkinglot.free}</h2>
+                    <p>Freie Parkplätze</p>
                 </div>
-                <h3>${parkinglot.name}</h3>
+                <div class="parkinglot-distanz">
+                    <h3>${parkinglot.name}</h3>
+                    ${parkinglot.distance ? `<p>Distanz: ${parkinglot.distance.toFixed(2)} km</p>` : ''}
+                </div>
                 ${parkingLotNameHTML}
-                
             `;
             parkinglotContainer.appendChild(parkinglotElement);
         });
     }
 
-    // Function to filter parking lots based on user input in the search bar
+    function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radius of the earth in km
+        const dLat = deg2rad(lat2 - lat1);
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c; // Distance in km
+        return distance;
+    }
+
+    function deg2rad(deg) {
+        return deg * (Math.PI / 180);
+    }
+
     function filterParkingLots() {
         const searchText = searchbar.value.toLowerCase();
         const filteredData = allData.filter(parkinglot =>
@@ -114,6 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
         displayParkingLots(filteredData);
     }
 
+
     searchbar.addEventListener('input', filterParkingLots);
+    
 
 });
