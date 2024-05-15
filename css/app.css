@@ -306,7 +306,8 @@ body {
   display: flex;
   flex-direction: row;
   text-align: center;
-  width: 80%;
+  width: 90%;
+  height: 70px;
   justify-content: space-between;
   background-color: #F5F5F7;
   color: #0D0D0D;
@@ -359,9 +360,6 @@ body {
   padding-right: 7px;
 }
 
-.parkinglot {
-  height: 70px;
-}
 
 .parkinglot-info {
   background-color: #2DCB74;

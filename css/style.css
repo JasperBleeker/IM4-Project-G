@@ -283,7 +283,7 @@ p {
 }
 
 .lottie {
-  height: 200px; /* Auto height for images */
+  height: 300px; /* Auto height for images */
   border-radius: 15px; /* Rundet die Ecken ab */
 }
 
@@ -297,8 +297,12 @@ p {
     flex-direction: column-reverse;
   }
 
+  .lottie {
+    height: 200px; /* Adjust height as needed */
+  }
+
   #parkraum {
-    margin-top: 50px; /* Oberer äußerer Abstand */
+    margin-top: 40px; /* Oberer äußerer Abstand */
     font-size: 16pt;
   }
 
@@ -893,7 +897,7 @@ input[type="date"] {
 }
 
 #lineChart {
-  width: 99% !important;
+  width: 100% !important;
   height: auto !important;
   aspect-ratio: 16 / 9;
   padding: 10px;
