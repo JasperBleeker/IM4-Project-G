@@ -279,8 +279,7 @@ p {
 }
 
 .lottie {
-  max-width: 100%; /* Max width for images */
-  height: auto; /* Auto height for images */
+  height: 200px; /* Auto height for images */
   border-radius: 15px; /* Rundet die Ecken ab */
 }
 
@@ -329,6 +328,10 @@ p {
   
   #parkplatzmonitor {
     margin-top: 80px; /* Oberer äußerer Abstand */
+  }
+
+  #mobile-lottie {
+    margin: 100px 0; /* Oberer und unterer äußerer Abstand */
   }
 }
 
@@ -603,6 +606,29 @@ p {
   margin: 0 0 10px 0; /* Adjust margin as needed */
 }
 
+#search {
+  background-color: #2DCB74;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  font-size: 14pt;
+  font-family: Arial, Helvetica, sans-serif; /
+  font-weight: 700;
+  margin-left: 20px;
+  color: #F5F5F7;
+  margin-bottom: 10px;
+}
+
+#search::placeholder {
+  color: #fff; /* Change placeholder text color to white */
+  opacity: 1;  /* Ensure the opacity is fully opaque */
+}
+
+#search:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
 
 @media (max-width: 1024px) {
