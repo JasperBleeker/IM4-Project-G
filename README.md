@@ -25,12 +25,13 @@ Server Aktivitäten (Verbindung mit VS-Code, Liveanzeige):
 
 ## Schwierigkeiten
 Verbindung API und php:
-- ?
+- keine Koordinatendaten von Parkhäusern
+- offensichtlich falsche Auslastungsdaten
 chart.js:
 - Pain
 - Map von leaflet besser als Koordinatendaten als Dot-Chart und Map als Hintergrundbild
 GitHub:
-- kleine Pullprobleme
+- kleine Pushprobleme
 Index.html:
 - Gross und Kleinschreibung beachten!
 
@@ -41,3 +42,4 @@ Index.html:
 - chart.js
 - leaflet
 - API “parkendd.de”
+- Figma (UX)
