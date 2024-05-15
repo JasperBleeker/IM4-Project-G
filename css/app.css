@@ -249,6 +249,15 @@ body {
     margin-bottom: 10px;
 }
 
+#search::placeholder {
+  color: #fff; /* Change placeholder text color to white */
+  opacity: 1;  /* Ensure the opacity is fully opaque */
+}
+
+#search:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 
 #parkinglot-box {
   display: grid;
@@ -264,21 +273,32 @@ body {
   display: flex;
   flex-direction: row;
   text-align: center;
-  width: 450px;
+  width: 70%;
   justify-content: space-between;
   background-color: #F5F5F7;
   color: #0D0D0D;
   border-radius: 10px;
+  margin: 0 auto;
 }
 
-.parkinglot p, h2, h3 {
+.parkinglot-distanz {
+  margin-right: auto;
+  margin-left: 10px;
+  text-align:left;
+}
+
+.parkinglot h3 {
   margin: 0;
   padding: 5px;
 }
 
+/* HIER TEXT-DEKORATION WEGMACHEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
 .route-link {
   display: flex;
-  text-decoration: none;
   color: #F5F5F7;
   background-color: #0D0D0D;
   align-items: center;
@@ -290,10 +310,27 @@ body {
 
 }
 
+.route {
+  text-decoration: none;
+}
+
 .parkinglot-info {
   background-color: #2DCB74;
   border-radius: 10px;
-  
+}
+
+.parkinglot p {
+  margin: 0;
+  padding: 0 5px 5px 5px;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.parkinglot-info h2 {
+  margin: 0;
+  padding: 5px 5px 0 5px;
+  font-size: 20pt;
 }
 
 @media screen and (max-width: 1024px) {
