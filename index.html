@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Datensammlung</title>
+    <title>Zurigo Parking</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#308D46">
@@ -22,7 +22,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-</head>
 </head>
 
 <body>
@@ -142,7 +141,9 @@
                     </p>
                 </div>
                 <div class="flex-item">
-                    <img src="/img/parking-zuerich-urania-08.jpg" alt="Foto von aussen vom Parkhaus Urania">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+                    <dotlottie-player src="https://lottie.host/33e0ad90-4a92-43cd-9cbd-9b941d35ed31/17JKVbOXzA.json" class="lottie" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
                 </div>
             </div>
         </section>
@@ -178,7 +179,7 @@
 
                 <div class="text_analyse">
                     <h2>BEDIENUNG <span id="green">DOT-MAP</span></h2>
-                    <p>Der Output der Dot-Map wird immer über einen Zeitraum von 24 Stunden angezeigt. 
+                    <p>Der Output der <span id="green">Dot-Map</span> wird immer über einen Zeitraum von 24 Stunden angezeigt. 
                         Mit dem <span id="green">"Datepicker"</span> kann der Tag ausgewählt werden, für den die Auslastung der Parkplätze angezeigt werden soll. 
                         Mit dem <span id="green">"Slider"</span> kann die Uhrzeit eingestellt werden. Die Dot-Map zeigt anschliessend die Auslastung der Parkplätze anhand der Grösse der Dots an.
                         Je grösser der Punkt, desto weniger Parkplätze sind an diesem Standort verfügbar. Spannend ist hier zu beobachten, wie die Auslastung der Arbeitstage
@@ -250,7 +251,7 @@
 
                 <div class="text_analyse">
                     <h2>BEDIENUNG <span id="green">LINE-CHART</span></h2>
-                    <p>Die Line-Chart dient dem Zwecke des direkten Auslastungsvergleichs. 
+                    <p>Die <span id="green">Line-Chart</span> dient dem Zwecke des direkten Auslastungsvergleichs. 
                         Mit dem <span id="green">"Standort-Button"</span> können mehrere Standorte ausgewählt werden, 
                         für die die Auslastung der Parkplätze im Vergleich angezeigt werden soll. 
                         Mit den <span id="green">"Date-Selectors"</span> kann der Zeitraum eingestellt werden, für den die Auslastung der Parkplätze angezeigt werden soll. 
@@ -332,6 +333,7 @@
     <script src="/js/map2.js"></script>
     <script src="/js/lineChart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </body>
 

@@ -1,285 +1,376 @@
 /* BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC BASIC*/
 
-body {  
-    background-color: #0D0D0D;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #F5F5F7; /* Optional: Changes text color to white for better visibility */
-    margin: 0;
-  }
-  
+body {
+  background-color: #0D0D0D;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #F5F5F7;
+  /* Optional: Changes text color to white for better visibility */
+  margin: 0;
+}
+
+.border-box {
+  margin-left: 5%;
+  /* Linker äußerer Abstand */
+  margin-right: 5%;
+  /* Rechter äußerer Abstand */
+}
+
+@media (max-width: 1024px) {
+
   .border-box {
-    margin-left: 5%; /* Linker äußerer Abstand */
-    margin-right: 5%; /* Rechter äußerer Abstand */
+    margin-left: 16px;
+    /* Linker äußerer Abstand */
+    margin-right: 16px;
+    /* Rechter äußerer Abstand */
   }
-  
-  @media (max-width: 1024px) {
-  
-    .border-box {
-      margin-left: 16px; /* Linker äußerer Abstand */
-      margin-right: 16px; /* Rechter äußerer Abstand */
-    }
-  
-  
-  }
-  
-  /* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
-  
-  .navbar {
-    display: flex; /* Enable Flexbox */
-    justify-content: space-around; /* Distribute space between the items */
-    align-items: center; /* Aligns the items vertically center */
-    background-color: transparent; /* Light grey background */
-    z-index: 9999; /* Places the navbar on top of other elements */
-    position: sticky; /* Makes the navbar stick to the top of the page */
-    top: 0; /* Places the navbar at the top of the page */
-    background-color: #0d0d0de1; /* Background color of the navbar */
-    -webkit-backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
-    backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
-  }
-  
-  .navbar img {
-    width: 180px; /* Width of the logo */
-  }
-  
-  .menu {
-    list-style-type: none; /* Removes bullet points from the entire list */
-  }
-  
-  .list-items a {
-    text-decoration: none; /* Removes underline from links */
-    color: #F5F5F7; /* Dark grey color for text */
-    font-family: "Roboto", sans-serif;
-    font-weight: 700; /* Bold font weight */
-    font-size: 18px; /* Font size for menu items */
-  }
-  
-  #navigation {
-    height: 100px; /* Adjust height as needed */
-    display: flex; /* Enable Flexbox */
-    text-align: center; /* Aligns the text in the center */
-    align-items: center; /* This aligns the child elements (ul) vertically center */
-  }
-  
-  /* MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR */
-  
-  .mobile-nav {
-    display: block; /* Display the mobile menu */
-    position: fixed; /* Fix the menu to the viewport */
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
-    z-index: 98; /* Places the menu below the navbar */
-    background-color: #0D0D0D; /* Background color of the menu */
-    padding-top: 120px; /* Adjust padding as needed */
-    top: -200vh; /* Start from above the viewport */
-    left: 0; /* Align to the left */
-    transition: top 0.4s ease-in-out; /* Add a transition on the 'top' property */
-  }
-  
-  .mobile-nav.open {
-  
-    top: 0vh; /* Move to the top of the viewport when the 'open' class is added */
-  }
-  
-  .mobile-nav.close {
-    display: none; /* Hide the menu when the 'close' class is added */
-  }
-  
-  .mobile-nav ul {
-    list-style-type: none; /* Removes bullet points from the entire list */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
-  }
-  
-  .mobile-nav a {
-    display: block;
-    margin: auto; /* This will center the a tags */
-    text-align: center; /* Aligns the text in the center */
-    padding: 12px 16px; /* Adjust padding as needed */
-    text-decoration: none; /* Removes underline from links */
-    color: #F5F5F7; /* Dark grey color for text */
-    font-family: "Roboto", sans-serif; /* Font family for the menu items */
-    font-weight: 700; /* Bold font weight */
-    font-size: 18px; /* Font size for menu items */
-    padding: 20px;  /* Adjust padding as necessary, but keep it symmetrical */
-  }
-  
+
+
+}
+
+/* NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR */
+
+.navbar {
+  display: flex; /* Enable Flexbox */
+  justify-content: space-around; /* Distribute space between the items */
+  align-items: center; /* Aligns the items vertically center */
+  background-color: transparent; /* Light grey background */
+  z-index: 9999; /* Places the navbar on top of other elements */
+  position: sticky; /* Makes the navbar stick to the top of the page */
+  top: 0; /* Places the navbar at the top of the page */
+  background-color: #0d0d0de1; /* Background color of the navbar */
+  -webkit-backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
+  backdrop-filter: blur(8px); /* Adds a blur effect to the navbar */
+}
+
+.navbar img {
+  width: 180px; /* Width of the logo */
+}
+
+.menu {
+  list-style-type: none; /* Removes bullet points from the entire list */
+}
+
+.list-items a {
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: "Roboto", sans-serif;
+  font-weight: 700; /* Bold font weight */
+  font-size: 18px; /* Font size for menu items */
+}
+
+#navigation {
+  height: 100px; /* Adjust height as needed */
+  display: flex; /* Enable Flexbox */
+  text-align: center; /* Aligns the text in the center */
+  align-items: center; /* This aligns the child elements (ul) vertically center */
+}
+
+/* MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR */
+
+.mobile-nav {
+  display: block; /* Display the mobile menu */
+  position: fixed; /* Fix the menu to the viewport */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  z-index: 98; /* Places the menu below the navbar */
+  background-color: #0D0D0D; /* Background color of the menu */
+  padding-top: 120px; /* Adjust padding as needed */
+  top: -200vh; /* Start from above the viewport */
+  left: 0; /* Align to the left */
+  transition: top 0.4s ease-in-out; /* Add a transition on the 'top' property */
+}
+
+.mobile-nav.open {
+
+  top: 0vh; /* Move to the top of the viewport when the 'open' class is added */
+}
+
+.mobile-nav.close {
+  display: none; /* Hide the menu when the 'close' class is added */
+}
+
+.mobile-nav ul {
+  list-style-type: none; /* Removes bullet points from the entire list */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.mobile-nav a {
+  display: block;
+  margin: auto; /* This will center the a tags */
+  text-align: center; /* Aligns the text in the center */
+  padding: 12px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Removes underline from links */
+  color: #F5F5F7; /* Dark grey color for text */
+  font-family: "Roboto", sans-serif; /* Font family for the menu items */
+  font-weight: 700; /* Bold font weight */
+  font-size: 22px; /* Font size for menu items */
+  padding: 20px;  /* Adjust padding as necessary, but keep it symmetrical */
+}
+
+#mobile-footer{
+  border-top: none;
+  margin-top: 30px;
+}
+
+#mobile-social-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#mobile-social-div a {
+  padding: 0;
+  margin: 0;
+}
+
+#mobile-social {
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger-menu {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Changes cursor to pointer */
+  display: flex; /* Enable Flexbox */
+  padding: 0; /* Removes default padding */
+}
+
+.line {
+  fill: none; /* Removes fill color */
+  stroke: #F5F5F7; /* White stroke color */
+  stroke-width: 6; /* Stroke width */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1); /* Add a transition effect */
+}
+.line1 {
+  stroke-dasharray: 60 207; /* Stroke dash array */
+  stroke-width: 6; /* Stroke width */
+}
+.line2 {
+  stroke-dasharray: 60 60; 
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+/* Media query for desktop screens */
+@media (min-width: 1024px) {
   .hamburger-menu {
-    background-color: transparent; /* Transparent background */
-    border: none; /* Removes default border */
-    cursor: pointer; /* Changes cursor to pointer */
-    display: flex; /* Enable Flexbox */
-    padding: 0; /* Removes default padding */
+      display: none; /* Hide the hamburger menu on desktop */
   }
-  
-  .line {
-    fill: none; /* Removes fill color */
-    stroke: #F5F5F7; /* White stroke color */
-    stroke-width: 6; /* Stroke width */
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1); /* Add a transition effect */
-  }
-  .line1 {
-    stroke-dasharray: 60 207; /* Stroke dash array */
-    stroke-width: 6; /* Stroke width */
-  }
-  .line2 {
-    stroke-dasharray: 60 60; 
-    stroke-width: 6;
-  }
-  .line3 {
-    stroke-dasharray: 60 207;
-    stroke-width: 6;
-  }
-  .opened .line1 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 6;
-  }
-  .opened .line2 {
-    stroke-dasharray: 1 60;
-    stroke-dashoffset: -30;
-    stroke-width: 6;
-  }
-  .opened .line3 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-    stroke-width: 6;
-  }
-  
-  /* Media query for desktop screens */
-  @media (min-width: 1024px) {
-    .hamburger-menu {
-        display: none; /* Hide the hamburger menu on desktop */
-    }
-  }
-  
-  @media (max-width: 1024px) {
-  
-    .hamburger-menu {
-        margin-top: 5px; /* Adjust margin as needed */
-        display :inline-block; /*or inline works as well*/
-        position : absolute; /* Position the hamburger menu */
-        right : 0; /* Align the menu to the right */
-    }
-  
-    .hamburger-menu svg {
-      width: 60px; /* Width of the hamburger menu */
-      height: 60px; /* Height of the hamburger menu */
-      margin-right: 20px; /* Adjust margin as needed */
-    }
-  
-    .logo { 
-      padding: 20px 20px 10px 20px; /* Adjust padding as needed */
-      display : flex; /* Enable Flexbox */
-      align-items: center; /* Aligns the items vertically center */
-      justify-content : center; /* Aligns the items horizontally center */
-    }
-  
-    .logo img {
-        width: 130px; /* Width of the logo */
-    }
-  
-    #navigation {
-      display: none; /* Hide the navigation menu on desktop */
-    }
+}
+
+@media (max-width: 1024px) {
+
+  .hamburger-menu {
+      margin-top: 5px; /* Adjust margin as needed */
+      display :inline-block; /*or inline works as well*/
+      position : absolute; /* Position the hamburger menu */
+      right : 0; /* Align the menu to the right */
   }
 
-    /* CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT */
+  .hamburger-menu svg {
+    width: 60px; /* Width of the hamburger menu */
+    height: 60px; /* Height of the hamburger menu */
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+
+  .logo { 
+    padding: 20px 20px 10px 20px; /* Adjust padding as needed */
+    display : flex; /* Enable Flexbox */
+    align-items: center; /* Aligns the items vertically center */
+    justify-content : center; /* Aligns the items horizontally center */
+  }
+
+  .logo img {
+      width: 130px; /* Width of the logo */
+  }
+
+  #navigation {
+    display: none; /* Hide the navigation menu on desktop */
+  }
+}
+
+/* CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT CONTENT */
+
+#parkinglot-box {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 90vw;
+  margin: 40px auto;
+}
+
+.parkinglot {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 450px;
+  justify-content: space-between;
+  background-color: #F5F5F7;
+  color: #0D0D0D;
+  border-radius: 10px;
+}
+
+.parkinglot p, h2, h3 {
+  margin: 0;
+  padding: 5px;
+}
+
+.route-link {
+  display: flex;
+  text-decoration: none;
+  color: #F5F5F7;
+  background-color: #0D0D0D;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+  height: 70%;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0;
+
+}
+
+.parkinglot-info {
+  background-color: #2DCB74;
+  border-radius: 10px;
+  
+}
+
+@media screen and (max-width: 1024px) {
+  #parkinglot-box {
+    grid-template-columns: 1fr;
+  }
+
+  .parkinglot {
+    width: 100%;
+  }
+  
+}
 
 
-  /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 
 .footer {
-    border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
-    color: #2DCB74;  /* Green color for the text */
-    margin-top: 100px; /* Oberer äußerer Abstand */
-    padding: 70px 0; /* Adds padding */
-    text-align: center; /* Aligns the text in the center */
-    font-family: "Roboto", sans-serif; /* Font family for the text */
-    font-weight: 700; /* Bold font weight */
-    font-size: 13pt; /* Font size for the text */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .social {
-    width: 40px; /* Width of the SVG */
-    height: 40px; /* Height of the SVG */
-    fill: #2DCB74; /* Green fill color */
-    display: block;
-    margin: 10px 30px;
-  }
-  
-  .social-div {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .rotating-text {
-    font-family: Lato, sans-serif;
-    font-weight: 600;
-    font-size: 36px;
-    color: white;
-    transform: translateX(-80px);
-  
-    p {
-      display: inline-flex;
-      margin: 0;
-      vertical-align: top;
-  
-      .word {
-        position: absolute;
-        display: flex;
-        opacity: 0;
-  
-        .letter {
-          transform-origin: center center 25px;
-  
-          &.out {
-            transform: rotateX(90deg);
-            transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
-          }
-          &.in {
-            transition: 0.38s ease;
-          }
-          &.behind {
-            transform: rotateX(-90deg);
-          }
+  border-top: 2.5px solid #F5F5F7; /* sets a white border at the top */
+  color: #2DCB74;  /* Green color for the text */
+  margin-top: 100px; /* Oberer äußerer Abstand */
+  padding: 70px 0; /* Adds padding */
+  text-align: center; /* Aligns the text in the center */
+  font-family: "Roboto", sans-serif; /* Font family for the text */
+  font-weight: 700; /* Bold font weight */
+  font-size: 13pt; /* Font size for the text */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-shadow: 0 0 24px #f5f5f74c;
+}
+
+.social {
+  width: 40px; /* Width of the SVG */
+  height: 40px; /* Height of the SVG */
+  fill: #2DCB74; /* Green fill color */
+  display: block;
+  margin: 10px 30px;
+}
+
+.social-div {
+  display: flex;
+  justify-content: center;
+}
+
+.rotating-text {
+  font-family: Lato, sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: white;
+  transform: translateX(-80px);
+
+  p {
+    display: inline-flex;
+    margin: 0;
+    vertical-align: top;
+
+    .word {
+      position: absolute;
+      display: flex;
+      opacity: 0;
+
+      .letter {
+        transform-origin: center center 25px;
+
+        &.out {
+          transform: rotateX(90deg);
+          transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+        }
+        &.in {
+          transition: 0.38s ease;
+        }
+        &.behind {
+          transform: rotateX(-90deg);
         }
       }
     }
   }
-  
-  @media (max-width: 1024px) {
-  
-    .word {
-      font-size: 10pt;
-      text-align: center;
-    }
-  
-    .word-title {
-      font-size: 10pt;
-    }
-  
-  /* palette: https://flatuicolors.com/palette/defo */
-  .alizarin {
-    color: #F5F5F7;
+}
+
+@media (max-width: 1024px) {
+
+  .word {
+    font-size: 10pt;
+    text-align: center;
   }
-  
-  .wisteria {
-    color: #8e44ad;
+
+  .word-title {
+    font-size: 10pt;
   }
-  
-  .peter-river {
-    color: #3498db;
+
+  .footer {
+    font-size: 2pt;
   }
-  
-  .emerald {
-    color: #2ecc71;
-  }
-  
-  .sun-flower {
-    color: #f1c40f;
-  }
-  }
+
+}
+
+
+
+/* palette: https://flatuicolors.com/palette/defo */
+.alizarin {
+  color: #F5F5F7;
+}
+
+.wisteria {
+  color: #8e44ad;
+}
+
+.peter-river {
+  color: #3498db;
+}
+
+.emerald {
+  color: #2ecc71;
+}
+
+.sun-flower {
+  color: #f1c40f;
+}

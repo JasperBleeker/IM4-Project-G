@@ -208,9 +208,12 @@ body {
 /* SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS SECTIONS */
 
 section {
-  margin: 100px 0; /* Oberer und unterer äußerer Abstand */
+  margin: 150px 0; /* Oberer und unterer äußerer Abstand */
 }
 
+#parkplatzmonitor {
+  margin-top: 110px; /* Oberer äußerer Abstand */
+}
 
 .title {
   display: flex; /* Enable Flexbox */
@@ -230,7 +233,7 @@ h2 {
   font-size: 30pt; /* Font size for the title */
   font-family: "Roboto", sans-serif; /* Font family for the title */
   font-weight: 700; /* Bold font weight */
-  margin: 0 0 20px 0; /* Removes default margin */
+  margin: 50px 0 20px 0; /* Removes default margin */
   text-shadow: 0 0 24px #f5f5f74c;
 }
 
@@ -275,7 +278,7 @@ p {
   padding-right: 30px; /* Rechter innerer Abstand */
 }
 
-.flex-item img {
+.lottie {
   max-width: 100%; /* Max width for images */
   height: auto; /* Auto height for images */
   border-radius: 15px; /* Rundet die Ecken ab */
@@ -318,6 +321,14 @@ p {
 
   .flex-item img {
     margin-bottom: 15px; /* Removes border radius */
+  }
+
+  section {
+    margin: 100px 0; /* Oberer und unterer äußerer Abstand */
+  }
+  
+  #parkplatzmonitor {
+    margin-top: 80px; /* Oberer äußerer Abstand */
   }
 }
 #gradient-border {
@@ -483,7 +494,6 @@ p {
   display: flex; /* Enable Flexbox */
   width: 100%; /* Adjust width as needed */
   gap: 20px;
-
 }
 
 @media screen and (max-width: 1024px){
@@ -491,9 +501,9 @@ p {
   #dropdown {
     background-color: #F5F5F7; /* Hintergrundfarbe */
     border-radius: 5px; /* Rundet die Ecken ab */
-    width: 90%; /* Breite des Dropdowns */
+    /* width: 90%; Breite des Dropdowns */
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
   }
 
   #button-text {
@@ -591,12 +601,17 @@ p {
 @media (max-width: 1024px) {
 
   .loop-box {
-    height: 700px; /* HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER */
+    height: 600px;
+    padding: 10px 0;
+    align-content: flex-start;
+    /* HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER HIER FEHLER */
   }
 
-  #dropdown {
-    height:750px;
+  .loop-check-div {
+    width: auto;
+    padding-left: 5px;
   }
+
 
   .selector {
     flex-direction: column; /* Aligns the items vertically */
@@ -816,7 +831,7 @@ input[type="date"] {
 
 
 .dotMap {
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .lineChart {

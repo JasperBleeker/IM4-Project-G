@@ -1,20 +1,76 @@
 body {
-	margin:0;
-	background:#000;
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
 
 p {
-	font-size: 15px;
+  font-size: 15px;
   text-align: justify;
   font-weight: bold;
   font-family: sans-serif;
-  min-height: 100vh;
-	max-width:800px;
-	margin:0 auto;
+  min-height: 60vh;
+  max-width: 800px;
+  margin: 0 auto;
   color: transparent;
   background: url(https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif) center/cover;
- -webkit-background-clip: text;
+  -webkit-background-clip: text;
   background-clip: text;
   word-spacing: 0px;
   letter-spacing: -1px;
+}
+
+.play-button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 21pt;
+  padding: 10px 20px;
+  color: #F5F5F7;
+  background-color: #2DCB74;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 20vw;
+  max-width: 200px;
+  min-width: 100px;
+  height: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .play-button {
+    font-size: 18pt;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .play-button {
+    font-size: 16pt;
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .play-button {
+    font-size: 14pt;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .play-button {
+    font-size: 12pt;
+    padding: 5px 10px;
+  }
 }

@@ -73,3 +73,13 @@ $(document).ready( function() {
 		}
 	});
 });
+
+document.getElementById('play-button').addEventListener('click', function() {
+	var audio = document.getElementById('background-audio');
+	audio.play().then(function() {
+	  // Hide the button once audio starts playing
+	  document.getElementById('play-button').style.display = 'none';
+	}).catch(function(error) {
+	  console.error('Error attempting to play audio:', error);
+	});
+  });
