@@ -893,7 +893,7 @@ input[type="date"] {
 }
 
 #lineChart {
-  width: 70% !important;
+  width: 99% !important;
   height: auto !important;
   aspect-ratio: 16 / 9;
   padding: 10px;
