@@ -286,7 +286,7 @@ body {
 @media (max-width: 1024px) {
 
   #search {
-    width: 65vw;
+    width: 50vw;
     height: 20px;
     margin-top: 50px;
   }
@@ -357,7 +357,8 @@ body {
 .route-icon {
   width: 30px;
   height: 30px;
-  padding-right: 7px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 
@@ -388,7 +389,7 @@ body {
   }
 
   .parkinglot {
-    width: 100%;
+    width: 70%;
     height: 50px;
     margin: 3px auto;
   }
@@ -428,6 +429,7 @@ body {
 
   .route-link {
     height: 60%;
+    width: 70px;
   }
 
   .route-link h3 {
@@ -435,13 +437,7 @@ body {
 
   }
 
-  .route-icon {
-    width: 50px;
-  }
 
-  .route-link {
-    width: 60px;
-  }
 }
 
 
