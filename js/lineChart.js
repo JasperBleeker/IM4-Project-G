@@ -157,6 +157,17 @@
         });
     }
 
+        // Correct data where free is greater than total
+    function correctData(data) {
+        return data.map(item => {
+            if (item.free > item.total) {
+                return {...item, free: item.total};
+            }
+            return item;
+        });
+    }
+
+
     document.addEventListener('DOMContentLoaded', () => {
         const apiUrl = 'https://project-g.data.dynamicvisualscollective.ch/php/unload.php';
 
@@ -180,7 +191,7 @@
                 return response.json();
             })
             .then(data => {
-                allData = data;
+                allData = correctData(data); // Correct data where free is greater than total
                 initializeCheckboxes(allData); // Create checkboxes with unique location names
                 updateChart(checkedLocations); // Update chart with initially checked locations
             })
